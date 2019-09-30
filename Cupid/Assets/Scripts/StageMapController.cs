@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MainSc = MainScene;
+using UnityEngine.SceneManagement;
 
 public class StageMapController : MonoBehaviour
 {
-    private MainSc mainScene;
+    //private MainSc mainScene;
     //private int numStages;
     //private Dictionary<int, GameObject> stageBtns;
     //private Dictionary<int, GameObject> stageNos;
@@ -144,7 +144,8 @@ public class StageMapController : MonoBehaviour
 
     public void stageButton()
     {
-        //mainScene.switchScene("StageScene");
         Debug.Log("click play button ...");
+        GameObject.Find("StageMapWrapper").SetActive(false);
+        SceneManager.GetSceneByName("StageScene").GetRootGameObjects()[0].SetActive(true);
     }
 }
