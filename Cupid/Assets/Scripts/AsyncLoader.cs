@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using MainCtrl = MainController;
+
 public class AsyncLoader : MonoBehaviour
 {
     private LoadSceneMode mode = LoadSceneMode.Single;

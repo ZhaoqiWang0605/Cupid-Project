@@ -18,12 +18,15 @@ public class MainController : MonoBehaviour
         asyncSceneLoader = gameObject.GetComponent<AsynLoader>();
         isScenesLoaded = new Dictionary<string, bool>();
         isScenesLoaded.Add("StageMapScene", false);
+        isScenesLoaded.Add("StageScene", false);
 
         List<string> preloadScenes = new List<string>();
         preloadScenes.Add("StageMapScene");
+        preloadScenes.Add("StageScene");
 
         List<IEnumerator> inactiveScenes = new List<IEnumerator>();
         inactiveScenes.Add(SetSceneInactive("StageMapScene"));
+        inactiveScenes.Add(SetSceneInactive("StageScene"));
 
         //asyncSceneLoader.SetBatchLoadScenes(inactiveScenes);
         asyncSceneLoader.StartBatchLoading(preloadScenes, inactiveScenes);

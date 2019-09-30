@@ -10,17 +10,17 @@ public class MainScene : MonoBehaviour
 {
     private MainCtrl mainCtrl;
     private AysnLoader asyncSceneLoader;
-    private GameObject mainRoot;
+    private GameObject root;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainRoot = GameObject.Find("MainWrapper");
+        root = GameObject.Find("MainWrapper");
 
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainScene"))
         {
-            mainCtrl = mainRoot.GetComponent<MainCtrl>();
-            asyncSceneLoader = mainRoot.GetComponent<AysnLoader>();
+            mainCtrl = root.GetComponent<MainCtrl>();
+            asyncSceneLoader = root.GetComponent<AysnLoader>();
         }
     }
 
@@ -30,6 +30,11 @@ public class MainScene : MonoBehaviour
         
     }
 
+    public void PlayButton()
+    {
+        switchScene("StageMapScene");
+    }
+
     IEnumerator WaitTilSceneLoaded()
     {
         yield return null;
@@ -37,33 +42,26 @@ public class MainScene : MonoBehaviour
 
     public void switchScene(string nextSceneName)
     {
-        //bool isLoaded = mainCtrl.IsSceneLoaded(nextSceneName);
+        Debug.Log(mainCtrl.IsSceneLoaded(nextSceneName));
 
         if (!mainCtrl.IsSceneLoaded(nextSceneName))
         {
-            //asyncSceneLoader.SetLoadScene(WaitTilSceneLoaded());
             asyncSceneLoader.StartLoading("Loading", WaitTilSceneLoaded());
 
             while (!mainCtrl.IsSceneLoaded(nextSceneName))
             {
                 StartCoroutine(WaitTilSceneLoaded());
-                //isLoaded = mainCtrl.IsSceneLoaded(nextSceneName);
             }
 
             asyncSceneLoader.StartUnloading("Loading");
         }
 
-        mainRoot.SetActive(false);
-        GameObject[]gameObjs = SceneManager.GetSceneByName(nextSceneName).GetRootGameObjects();
+        root.SetActive(false);
+        GameObject[] gameObjs = SceneManager.GetSceneByName(nextSceneName).GetRootGameObjects();
 
         for (int i = 0; i < gameObjs.Length; i++)
         {
             gameObjs[i].SetActive(true);
         }
-    }
-
-    public void PlayButton()
-    {
-        switchScene("StageMapScene");
     }
 }
