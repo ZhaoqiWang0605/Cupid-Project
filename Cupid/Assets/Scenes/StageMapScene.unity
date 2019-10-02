@@ -120,6 +120,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59514215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59514216}
+  - component: {fileID: 59514218}
+  - component: {fileID: 59514217}
+  m_Layer: 5
+  m_Name: lock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &59514216
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59514215}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1809179984}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.4875, y: 0.52500004}
+  m_AnchorMax: {x: 0.4875, y: 0.52500004}
+  m_AnchoredPosition: {x: -2.3, y: -5.6}
+  m_SizeDelta: {x: 23, y: 28}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &59514217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59514215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 57e5c667df3a64b32912f59bd55752e9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &59514218
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59514215}
+  m_CullTransparentMesh: 0
 --- !u!1 &115561550
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,12 +206,12 @@ GameObject:
   - component: {fileID: 115561553}
   - component: {fileID: 115561552}
   m_Layer: 5
-  m_Name: star5_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &115561551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -206,12 +280,12 @@ GameObject:
   - component: {fileID: 121977512}
   - component: {fileID: 121977511}
   m_Layer: 5
-  m_Name: star10_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &121977510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -354,7 +428,7 @@ GameObject:
   - component: {fileID: 216681638}
   - component: {fileID: 216681637}
   m_Layer: 5
-  m_Name: lock2
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,12 +502,12 @@ GameObject:
   - component: {fileID: 273711761}
   - component: {fileID: 273711760}
   m_Layer: 5
-  m_Name: stageNo9
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &273711759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -507,12 +581,12 @@ GameObject:
   - component: {fileID: 283923637}
   - component: {fileID: 283923636}
   m_Layer: 5
-  m_Name: star6_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &283923635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -686,7 +760,7 @@ GameObject:
   - component: {fileID: 327775050}
   - component: {fileID: 327775049}
   m_Layer: 5
-  m_Name: lock7
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,12 +834,12 @@ GameObject:
   - component: {fileID: 366426249}
   - component: {fileID: 366426248}
   m_Layer: 5
-  m_Name: star8_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &366426247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -834,12 +908,12 @@ GameObject:
   - component: {fileID: 371448933}
   - component: {fileID: 371448932}
   m_Layer: 5
-  m_Name: stageNo2
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &371448931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -913,7 +987,7 @@ GameObject:
   - component: {fileID: 410085070}
   - component: {fileID: 410085069}
   m_Layer: 5
-  m_Name: lock4
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,7 +1061,7 @@ GameObject:
   - component: {fileID: 437826527}
   - component: {fileID: 437826526}
   m_Layer: 5
-  m_Name: lock3
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1062,6 +1136,7 @@ GameObject:
   - component: {fileID: 446534510}
   - component: {fileID: 446534509}
   - component: {fileID: 446534512}
+  - component: {fileID: 446534513}
   m_Layer: 5
   m_Name: playBtn2
   m_TagString: Untagged
@@ -1199,6 +1274,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &446534513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446534507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459052528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,12 +1298,12 @@ GameObject:
   - component: {fileID: 459052531}
   - component: {fileID: 459052530}
   m_Layer: 5
-  m_Name: star6_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459052529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1285,12 +1372,12 @@ GameObject:
   - component: {fileID: 512690691}
   - component: {fileID: 512690690}
   m_Layer: 5
-  m_Name: star5_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &512690689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1359,12 +1446,12 @@ GameObject:
   - component: {fileID: 601000567}
   - component: {fileID: 601000566}
   m_Layer: 5
-  m_Name: stageNo3
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &601000565
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1629,12 +1716,12 @@ GameObject:
   - component: {fileID: 809030397}
   - component: {fileID: 809030396}
   m_Layer: 5
-  m_Name: star2_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &809030395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1703,12 +1790,12 @@ GameObject:
   - component: {fileID: 812154460}
   - component: {fileID: 812154459}
   m_Layer: 5
-  m_Name: star5_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &812154458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1778,6 +1865,7 @@ GameObject:
   - component: {fileID: 850066959}
   - component: {fileID: 850066958}
   - component: {fileID: 850066961}
+  - component: {fileID: 850066962}
   m_Layer: 5
   m_Name: playBtn10
   m_TagString: Untagged
@@ -1915,6 +2003,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &850066962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850066956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893285669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,12 +2027,12 @@ GameObject:
   - component: {fileID: 893285672}
   - component: {fileID: 893285671}
   m_Layer: 5
-  m_Name: star3_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &893285670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2034,12 +2134,12 @@ GameObject:
   - component: {fileID: 931621143}
   - component: {fileID: 931621142}
   m_Layer: 5
-  m_Name: star10_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &931621141
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2109,6 +2209,7 @@ GameObject:
   - component: {fileID: 941269262}
   - component: {fileID: 941269261}
   - component: {fileID: 941269264}
+  - component: {fileID: 941269265}
   m_Layer: 5
   m_Name: playBtn8
   m_TagString: Untagged
@@ -2246,6 +2347,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &941269265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941269259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &952983865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2371,7 @@ GameObject:
   - component: {fileID: 952983868}
   - component: {fileID: 952983867}
   m_Layer: 5
-  m_Name: lock5
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,12 +2445,12 @@ GameObject:
   - component: {fileID: 959080381}
   - component: {fileID: 959080380}
   m_Layer: 5
-  m_Name: stageNo10
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &959080379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2411,12 +2524,12 @@ GameObject:
   - component: {fileID: 963256761}
   - component: {fileID: 963256760}
   m_Layer: 5
-  m_Name: star3_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &963256759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2699,12 +2812,12 @@ GameObject:
   - component: {fileID: 1043836838}
   - component: {fileID: 1043836837}
   m_Layer: 5
-  m_Name: star9_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1043836836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2773,12 +2886,12 @@ GameObject:
   - component: {fileID: 1075435536}
   - component: {fileID: 1075435535}
   m_Layer: 5
-  m_Name: star8_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1075435534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2847,12 +2960,12 @@ GameObject:
   - component: {fileID: 1096979497}
   - component: {fileID: 1096979496}
   m_Layer: 5
-  m_Name: star3_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1096979495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2921,12 +3034,12 @@ GameObject:
   - component: {fileID: 1120519000}
   - component: {fileID: 1120518999}
   m_Layer: 5
-  m_Name: star4_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1120518998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2995,12 +3108,12 @@ GameObject:
   - component: {fileID: 1137416765}
   - component: {fileID: 1137416764}
   m_Layer: 5
-  m_Name: stageNo6
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1137416763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3074,12 +3187,12 @@ GameObject:
   - component: {fileID: 1141203541}
   - component: {fileID: 1141203540}
   m_Layer: 5
-  m_Name: star8_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1141203539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3148,12 +3261,12 @@ GameObject:
   - component: {fileID: 1141260479}
   - component: {fileID: 1141260478}
   m_Layer: 5
-  m_Name: star7_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1141260477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3223,6 +3336,7 @@ GameObject:
   - component: {fileID: 1149481635}
   - component: {fileID: 1149481634}
   - component: {fileID: 1149481637}
+  - component: {fileID: 1149481638}
   m_Layer: 5
   m_Name: playBtn9
   m_TagString: Untagged
@@ -3360,6 +3474,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1149481638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149481632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1150323958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,12 +3498,12 @@ GameObject:
   - component: {fileID: 1150323961}
   - component: {fileID: 1150323960}
   m_Layer: 5
-  m_Name: stageNo7
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1150323959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3452,6 +3578,7 @@ GameObject:
   - component: {fileID: 1214297767}
   - component: {fileID: 1214297766}
   - component: {fileID: 1214297769}
+  - component: {fileID: 1214297770}
   m_Layer: 5
   m_Name: playBtn5
   m_TagString: Untagged
@@ -3589,6 +3716,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1214297770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214297764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266663362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,12 +3740,12 @@ GameObject:
   - component: {fileID: 1266663365}
   - component: {fileID: 1266663364}
   m_Layer: 5
-  m_Name: stageNo8
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1266663363
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3721,7 +3860,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.8319044
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4081,12 +4220,12 @@ GameObject:
   - component: {fileID: 1351084685}
   - component: {fileID: 1351084684}
   m_Layer: 5
-  m_Name: star4_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1351084683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4155,12 +4294,12 @@ GameObject:
   - component: {fileID: 1376248990}
   - component: {fileID: 1376248989}
   m_Layer: 5
-  m_Name: star1_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1376248988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4229,12 +4368,12 @@ GameObject:
   - component: {fileID: 1382629363}
   - component: {fileID: 1382629362}
   m_Layer: 5
-  m_Name: stageNo5
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1382629361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4309,6 +4448,7 @@ GameObject:
   - component: {fileID: 1408371891}
   - component: {fileID: 1408371890}
   - component: {fileID: 1408371893}
+  - component: {fileID: 1408371894}
   m_Layer: 5
   m_Name: playBtn6
   m_TagString: Untagged
@@ -4446,6 +4586,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1408371894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408371888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1509508914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,12 +4610,12 @@ GameObject:
   - component: {fileID: 1509508917}
   - component: {fileID: 1509508916}
   m_Layer: 5
-  m_Name: star7_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509508915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4640,6 +4792,7 @@ GameObject:
   - component: {fileID: 1525438155}
   - component: {fileID: 1525438154}
   - component: {fileID: 1525438157}
+  - component: {fileID: 1525438158}
   m_Layer: 5
   m_Name: playBtn4
   m_TagString: Untagged
@@ -4777,6 +4930,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1525438158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525438152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1566026757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,12 +4954,12 @@ GameObject:
   - component: {fileID: 1566026760}
   - component: {fileID: 1566026759}
   m_Layer: 5
-  m_Name: stageNo4
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1566026758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4963,7 +5128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632275496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1f8086675b5a48c6b93262478b8719c, type: 3}
   m_Name: 
@@ -4980,12 +5145,12 @@ GameObject:
   - component: {fileID: 1687699481}
   - component: {fileID: 1687699480}
   m_Layer: 5
-  m_Name: star9_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1687699479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5054,12 +5219,12 @@ GameObject:
   - component: {fileID: 1689138466}
   - component: {fileID: 1689138465}
   m_Layer: 5
-  m_Name: stageNo1
+  m_Name: stageNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1689138464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5133,7 +5298,7 @@ GameObject:
   - component: {fileID: 1719736636}
   - component: {fileID: 1719736635}
   m_Layer: 5
-  m_Name: lock6
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5207,7 +5372,7 @@ GameObject:
   - component: {fileID: 1742998554}
   - component: {fileID: 1742998553}
   m_Layer: 5
-  m_Name: lock9
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5281,12 +5446,12 @@ GameObject:
   - component: {fileID: 1791412184}
   - component: {fileID: 1791412183}
   m_Layer: 5
-  m_Name: star4_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1791412182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5355,12 +5520,12 @@ GameObject:
   - component: {fileID: 1798544399}
   - component: {fileID: 1798544398}
   m_Layer: 5
-  m_Name: star6_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1798544397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5429,12 +5594,12 @@ GameObject:
   - component: {fileID: 1801541827}
   - component: {fileID: 1801541826}
   m_Layer: 5
-  m_Name: star1_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1801541825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5504,6 +5669,7 @@ GameObject:
   - component: {fileID: 1809179986}
   - component: {fileID: 1809179985}
   - component: {fileID: 1809179988}
+  - component: {fileID: 1809179989}
   m_Layer: 5
   m_Name: playBtn1
   m_TagString: Untagged
@@ -5527,6 +5693,7 @@ RectTransform:
   - {fileID: 2098891634}
   - {fileID: 1376248988}
   - {fileID: 1801541825}
+  - {fileID: 59514216}
   m_Father: {fileID: 781778940}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5578,8 +5745,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1632275501}
-        m_MethodName: stageButton
+      - m_Target: {fileID: 1809179989}
+        m_MethodName: Selected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5638,6 +5805,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1809179989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809179983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1818225711
@@ -5718,12 +5897,12 @@ GameObject:
   - component: {fileID: 1862562055}
   - component: {fileID: 1862562054}
   m_Layer: 5
-  m_Name: star2_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1862562053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5792,12 +5971,12 @@ GameObject:
   - component: {fileID: 1879474516}
   - component: {fileID: 1879474515}
   m_Layer: 5
-  m_Name: star9_3
+  m_Name: star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1879474514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5866,7 +6045,7 @@ GameObject:
   - component: {fileID: 1903372867}
   - component: {fileID: 1903372866}
   m_Layer: 5
-  m_Name: lock8
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5940,12 +6119,12 @@ GameObject:
   - component: {fileID: 1904093701}
   - component: {fileID: 1904093700}
   m_Layer: 5
-  m_Name: star7_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1904093699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6121,12 +6300,12 @@ GameObject:
   - component: {fileID: 1937692821}
   - component: {fileID: 1937692820}
   m_Layer: 5
-  m_Name: star10_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1937692819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6195,7 +6374,7 @@ GameObject:
   - component: {fileID: 1975192001}
   - component: {fileID: 1975192000}
   m_Layer: 5
-  m_Name: lock10
+  m_Name: lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6270,6 +6449,7 @@ GameObject:
   - component: {fileID: 2010674141}
   - component: {fileID: 2010674140}
   - component: {fileID: 2010674143}
+  - component: {fileID: 2010674144}
   m_Layer: 5
   m_Name: playBtn7
   m_TagString: Untagged
@@ -6407,6 +6587,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2010674144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010674138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029354725
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,12 +6611,12 @@ GameObject:
   - component: {fileID: 2029354728}
   - component: {fileID: 2029354727}
   m_Layer: 5
-  m_Name: star2_2
+  m_Name: star2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2029354726
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6494,6 +6686,7 @@ GameObject:
   - component: {fileID: 2045435093}
   - component: {fileID: 2045435092}
   - component: {fileID: 2045435095}
+  - component: {fileID: 2045435096}
   m_Layer: 5
   m_Name: playBtn3
   m_TagString: Untagged
@@ -6631,6 +6824,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f93666d3952471fb9ccf9ccabab014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2045435096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045435090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95658ebafef6f4e989e0ecf035e1af3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090577948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,12 +6954,12 @@ GameObject:
   - component: {fileID: 2098891636}
   - component: {fileID: 2098891635}
   m_Layer: 5
-  m_Name: star1_1
+  m_Name: star1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2098891634
 RectTransform:
   m_ObjectHideFlags: 0
