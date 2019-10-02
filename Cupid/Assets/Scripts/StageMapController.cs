@@ -145,7 +145,8 @@ public class StageMapController : MonoBehaviour
     public void stageButton()
     {
         Debug.Log("click play button ...");
-        GameObject.Find("StageMapWrapper").SetActive(false);
-        SceneManager.GetSceneByName("StageScene").GetRootGameObjects()[0].SetActive(true);
+        //GameObject.Find("StageMapWrapper").SetActive(false);
+        //SceneManager.GetSceneByName("StageScene").GetRootGameObjects()[0].SetActive(true);
+        SceneManager.LoadScene("StageScene");
     }
 }
