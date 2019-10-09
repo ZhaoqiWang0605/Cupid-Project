@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ForceArrowController : MonoBehaviour
 {
-    public ForecArrowButtonController forceArrowButtonController;
+    public UIForceArrowButtonController uIForceArrowButtonController;
 
     private Rigidbody2D rg;
     private bool collided = false;
@@ -35,31 +35,33 @@ public class ForceArrowController : MonoBehaviour
         rg.AddForce(force, ForceMode2D.Impulse);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!collided) {
+        if (!collided)
+        {
             Debug.Log("OnCollisionEnter2D");
-            TerrainController terrain = collision.gameObject.GetComponent<TerrainController>();
+            TerrainController terrain = col.gameObject.GetComponent<TerrainController>();
             if (terrain != null)
             {
                 collided = true;
                 collideWithTerrain();
             }
 
-            CoupleController couple = collision.gameObject.GetComponent<CoupleController>();
-            if (couple != null) {
+            CoupleController couple = col.gameObject.GetComponent<CoupleController>();
+            if (couple != null)
+            {
                 collided = true;
                 collideWithCouple(couple);
             }
         }
-        
+
     }
 
     public void collideWithTerrain()
     {
         Debug.Log("collideWithTerrain");
         rg.bodyType = RigidbodyType2D.Static;
-        forceArrowButtonController.nextArrow();
+        uIForceArrowButtonController.nextArrow();
         //Destroy(gameObject, 0.5f);
         Destroy(gameObject);
     }
@@ -69,9 +71,14 @@ public class ForceArrowController : MonoBehaviour
         Debug.Log("collideWithCouple");
         rg.bodyType = RigidbodyType2D.Static;
         couple.setInLove();
-        forceArrowButtonController.nextArrow();
+        uIForceArrowButtonController.nextArrow();
         //Destroy(gameObject, 0.5f);
         Destroy(gameObject);
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("ForceArrowController.OnMouseDown()");
     }
 
 }

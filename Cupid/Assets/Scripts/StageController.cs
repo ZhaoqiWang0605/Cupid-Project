@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class StageController : MonoBehaviour
 {
@@ -11,39 +12,42 @@ public class StageController : MonoBehaviour
     public Text minuteText;
     public Text secondText;
 
-    public float timeLimit = 500;
+    public float timeLimit;
     public float clearScore;
-    public GameObject arrowButton;
     public List<CoupleController> coupleControllers;
+    public GameObject arrowButton;
     public GameObject dialogCanvas;
+    public GameObject successDialog;
+    public GameObject failDialog;
+    public CinemachineVirtualCamera vcam;
+    public Transform vcamFollow;
 
-    private float seconds = 500;
-    private float timeLeft;
-    private float currentScore;
+    private float seconds;
+    private float currentScore = 0;
     private bool gameEnded = false;
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = timeLimit;
-        currentScore = 0;
+        seconds = timeLimit;
         SetCountText();
         dialogCanvas.SetActive(false);
+        successDialog.SetActive(false);
+        failDialog.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!gameEnded) {
+        if (!gameEnded)
+        {
             seconds -= Time.deltaTime;
             SetTimeText();
-            checkGameEnd();
+            CheckGameEnded();
         }
-        
     }
 
     void SetCountText()
     {
-        //scoreText.text = DataRecord.score.ToString();
         scoreText.text = currentScore.ToString().PadLeft(5, '0');
     }
 
@@ -55,24 +59,55 @@ public class StageController : MonoBehaviour
         secondText.text = second.ToString();
     }
 
-    void checkGameEnd() {
+    void CheckGameEnded()
+    {
+        // First, check if all couples are in love, if they are, the player wins.
         gameEnded = true;
-        foreach (CoupleController coupleController in coupleControllers) {
-            if (!coupleController.isInLove()) {
+        foreach (CoupleController coupleController in coupleControllers)
+        {
+            if (!coupleController.isInLove())
+            {
                 gameEnded = false;
             }
         }
         if (gameEnded) {
-            gameEnd(); 
+            GameEndSuccess();
+            return;
         }
+
+        // If there exist couples that are not in love yet, check if there's still time left,
+        // if there isn't any tie left, the player loses.
+        if (seconds <= 0)
+        {
+            gameEnded = true;
+            GameEndFail();
+        }
+
     }
 
-    void gameEnd() {
+    void GameEndSuccess()
+    {
         dialogCanvas.SetActive(true);
+        successDialog.SetActive(true);
+        failDialog.SetActive(false);
+        arrowButton.SetActive(false);
+    }
+
+    void GameEndFail()
+    {
+        dialogCanvas.SetActive(true);
+        successDialog.SetActive(false);
+        failDialog.SetActive(true);
         arrowButton.SetActive(false);
     }
 
     public void loadScene(String sceneName) {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void moveCamera(float deltaX)
+    {
+        Debug.Log("StageController.moveCamera(): " + deltaX);
+        vcamFollow.position = new Vector2(vcamFollow.position.x + deltaX, vcamFollow.position.y);
     }
 }
