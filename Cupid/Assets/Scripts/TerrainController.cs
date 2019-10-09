@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataRecord : MonoBehaviour
+public class TerrainController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int score = 100;
-
     void Start()
     {
         
@@ -18,8 +16,4 @@ public class DataRecord : MonoBehaviour
         
     }
 
-    void ScoreUpdate(int increaseScore) 
-    {
-        score += increaseScore;
-    }
 }
