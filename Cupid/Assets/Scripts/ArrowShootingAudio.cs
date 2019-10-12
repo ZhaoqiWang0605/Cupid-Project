@@ -1,24 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainScene : MonoBehaviour
+public class ArrowShootingAudio : MonoBehaviour
 {
+    public AudioClip musicClip;
+    public AudioSource musicSource;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        musicSource.clip = musicClip;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void PlayButton()
-    {
-        SceneManager.LoadScene("StageMapScene");
+        //if (UIForceArrowButtonController)
     }
 }
