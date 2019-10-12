@@ -81,4 +81,13 @@ public class ForceArrowController : MonoBehaviour
         Debug.Log("ForceArrowController.OnMouseDown()");
     }
 
+    public float getArrowMass()
+    {
+        return rg.mass;
+    }
+
+    public Vector3 getArrowPosition()
+    {
+        return rg.transform.position;
+    }
 }
