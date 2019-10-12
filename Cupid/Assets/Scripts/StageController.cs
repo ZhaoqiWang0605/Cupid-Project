@@ -22,9 +22,18 @@ public class StageController : MonoBehaviour
     public CinemachineVirtualCamera vcam;
     public Transform vcamFollow;
 
+
     private float seconds;
     private float currentScore = 0;
     private bool gameEnded = false;
+
+    // Scores
+    private float score1 = 500;
+    private float score2 = 1000;
+    private float score3 = 2000;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +57,8 @@ public class StageController : MonoBehaviour
 
     void SetCountText()
     {
-        scoreText.text = currentScore.ToString().PadLeft(5, '0');
+        //scoreText.text = currentScore.ToString().PadLeft(5, '0');
+        scoreText.text = currentScore.ToString();
     }
 
     void SetTimeText()
@@ -71,7 +81,7 @@ public class StageController : MonoBehaviour
             }
         }
         if (gameEnded) {
-            GameEndSuccess();
+            GameEnd();
             return;
         }
 
@@ -80,17 +90,52 @@ public class StageController : MonoBehaviour
         if (seconds <= 0)
         {
             gameEnded = true;
-            GameEndFail();
+            // GameEndFail();
+            GameEnd();
         }
 
     }
 
-    void GameEndSuccess()
+    void GameEnd()
     {
+        if (currentScore < score1)
+        {
+            GameEndFail();
+        } else if (currentScore < score2)
+        {
+            GameEndSuccess(1);
+        } else if (currentScore < score3)
+        {
+            GameEndSuccess(2);
+        }
+        else
+        {
+            GameEndSuccess(3);
+        }
+    }
+
+    public void UpdateScore(int type)
+    {
+        // 0 for people, 1 for item
+        if (type == 0)
+        {
+            currentScore += 1000;
+            scoreText.text = currentScore.ToString();
+        }
+    }
+
+
+    void GameEndSuccess(int stars)
+    {
+        print(stars);
         dialogCanvas.SetActive(true);
         successDialog.SetActive(true);
         failDialog.SetActive(false);
         arrowButton.SetActive(false);
+        //successDialog.GetComponent<>
+
+        successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
+
     }
 
     void GameEndFail()
