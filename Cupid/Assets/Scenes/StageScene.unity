@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: 6c7af1afac3e1419ab010f4dd35a7c65, type: 3}
   musicSource: {fileID: 181208932}
-  isBackground: 0
+  isBackground: 1
 --- !u!82 &181208932
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: 09ef8edbbb78a469cbd3d98011cee48d, type: 3}
   musicSource: {fileID: 2083235025}
-  isBackground: 0
+  isBackground: 1
 --- !u!82 &2083235025
 AudioSource:
   m_ObjectHideFlags: 0
