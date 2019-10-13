@@ -8,6 +8,8 @@ public class CoupleController : MonoBehaviour
     public GameObject gameObject;
     public StageController stage;
 
+    public Audio audio;
+
     private bool inLove = false;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class CoupleController : MonoBehaviour
         heartEffect.Play();
         Debug.Log("CoupleController.inLove(): Couple inLoved");
         stage.UpdateScore(0);
+        audio.PlayMusic();
     }
 
     public bool isInLove() {

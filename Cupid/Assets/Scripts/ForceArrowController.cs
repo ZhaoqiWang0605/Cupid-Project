@@ -9,8 +9,6 @@ public class ForceArrowController : MonoBehaviour
     private Rigidbody2D rg;
     private bool collided = false;
 
-    //public Audio audio;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -76,7 +74,6 @@ public class ForceArrowController : MonoBehaviour
         uIForceArrowButtonController.nextArrow();
         //Destroy(gameObject, 0.5f);
         Destroy(gameObject);
-		//audio.PlayMusic();
     }
 
     private void OnMouseDown()
