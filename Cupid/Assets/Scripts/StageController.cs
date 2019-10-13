@@ -32,6 +32,7 @@ public class StageController : MonoBehaviour
     private float score2 = 1000;
     private float score3 = 2000;
 
+    public Audio audio;
 
 
     // Start is called before the first frame update
@@ -112,6 +113,7 @@ public class StageController : MonoBehaviour
         {
             GameEndSuccess(3);
         }
+		audio.StopMusic();
     }
 
     public void UpdateScore(int type)

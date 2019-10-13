@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -17,7 +18,9 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public int projectArcPointCount = 30;
     private List<GameObject> arcPoints;
 
-    private void start()
+	public Audio audio;
+
+	private void start()
     {
         arcPoints = new List<GameObject>();
         //   points object are instatiated
@@ -109,7 +112,10 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
         currentArrow.transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
+
+		audio.PlayMusic();
+
+	}
 
     // Following method returns force by calculating distance between given two points
     //---------------------------------------    
