@@ -1240,11 +1240,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 449188778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d760602f22ea436d9c70e50ee99860c, type: 3}
+  m_Script: {fileID: 11500000, guid: 14054fb151dc84b58a2f154e2ea3a6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: a70aa0c1a545a4258b740c1cb776757b, type: 3}
   musicSource: {fileID: 449188781}
+  isBackground: 1
 --- !u!82 &449188781
 AudioSource:
   m_ObjectHideFlags: 0
