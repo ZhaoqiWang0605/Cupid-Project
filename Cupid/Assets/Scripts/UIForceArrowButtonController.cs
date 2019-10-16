@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -10,6 +12,25 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     private ForceArrowController currentArrow;
     private Vector3 centerPosition;
+    private float power = 0.25f;
+
+    public GameObject projectArcPoint;
+    public int projectArcPointCount = 30;
+    private List<GameObject> arcPoints;
+
+	public Audio audio;
+
+	private void start()
+    {
+        arcPoints = new List<GameObject>();
+        //   points object are instatiated
+        for (int i = 0; i < projectArcPointCount; i++)
+        {
+            GameObject point = (GameObject)Instantiate(projectArcPoint);
+            point.GetComponent<Renderer>().enabled = false;
+            arcPoints.Insert(i, point);
+        }
+    }
 
     private void Awake()
     {
@@ -18,6 +39,15 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         Debug.Log("RectTransform.anchoredPosition: " + GetComponent<RectTransform>().anchoredPosition.ToString());*/
         centerPosition = transform.position;
         nextArrow();
+
+        arcPoints = new List<GameObject>();
+        //   points object are instatiated
+        for (int i = 0; i < projectArcPointCount; i++)
+        {
+            GameObject point = (GameObject)Instantiate(projectArcPoint);
+            point.GetComponent<Renderer>().enabled = false;
+            arcPoints.Insert(i, point);
+        }
     }
 
     void Update()
@@ -58,6 +88,11 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             Debug.Log("posDelta multiplied: " + posDelta.ToString());
             transform.position = centerPosition + posDelta;
         }
+        //draw projectile arc
+        Vector3 force = GetForceFromTwoPoint(transform.position, centerPosition);
+        float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, angle);
+        setTrajectoryPoints(currentArrow.getArrowPosition(), force / currentArrow.getArrowMass());
 
         // Rotate cupid, arrow and arrowButtonPointer as we rotate force arrow button
         float rotationAngle = Mathf.Atan2(-posDelta.y, -posDelta.x) * Mathf.Rad2Deg;
@@ -69,13 +104,53 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag()");
-        Vector2 posDelta = new Vector2(centerPosition.x - transform.position.x, centerPosition.y - transform.position.y);
-        currentArrow.launch(new Vector2(posDelta.x, posDelta.y)/4);
+        Vector2 force = GetForceFromTwoPoint(transform.position, centerPosition);
+        RemooveProjectileArc();
+        currentArrow.launch(force);
         transform.position = centerPosition;
 
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
         currentArrow.transform.rotation = Quaternion.Euler(0, 0, 0);
         arrowButtonPointer.transform.rotation = Quaternion.Euler(0, 0, -90.0f);
+
+		audio.PlayMusic();
+	}
+
+    // Following method returns force by calculating distance between given two points
+    //---------------------------------------    
+    private Vector2 GetForceFromTwoPoint(Vector3 fromPos, Vector3 toPos)
+    {
+        return (new Vector2(toPos.x, toPos.y) - new Vector2(fromPos.x, fromPos.y)) * power;
+    }
+
+    //---------------------------------------    
+    // Following method displays projectile trajectory path. It takes two arguments, start position of object(ball) and initial velocity of object(ball).
+    //---------------------------------------    
+    private void setTrajectoryPoints(Vector3 pStartPosition, Vector3 pVelocity)
+    {
+        float velocity = Mathf.Sqrt((pVelocity.x * pVelocity.x) + (pVelocity.y * pVelocity.y));
+        float angle = Mathf.Rad2Deg * (Mathf.Atan2(pVelocity.y, pVelocity.x));
+        float fTime = 0;
+
+        fTime += 0.1f;
+        for (int i = 0; i < projectArcPointCount; i++)
+        {
+            float dx = velocity * fTime * Mathf.Cos(angle * Mathf.Deg2Rad);
+            float dy = velocity * fTime * Mathf.Sin(angle * Mathf.Deg2Rad) - (Physics2D.gravity.magnitude * fTime * fTime / 2.0f);
+            Vector3 pos = new Vector3(pStartPosition.x + dx, pStartPosition.y + dy, 2);
+            arcPoints[i].transform.position = pos;
+            arcPoints[i].GetComponent<Renderer>().enabled = true;
+            arcPoints[i].transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(pVelocity.y - (Physics.gravity.magnitude) * fTime, pVelocity.x) * Mathf.Rad2Deg);
+            fTime += 0.1f;
+        }
+    }
+
+    private void RemooveProjectileArc()
+    {
+        for (int i = 0; i < projectArcPointCount; i++)
+        {
+            arcPoints[i].GetComponent<Renderer>().enabled = false;
+        }
     }
 }

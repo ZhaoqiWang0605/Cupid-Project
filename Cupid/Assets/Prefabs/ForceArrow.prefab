@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIForceArrowButtonController: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!50 &6082937056054110594
 Rigidbody2D:
   serializedVersion: 4
