@@ -38,6 +38,7 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         seconds = timeLimit;
         SetCountText();
         dialogCanvas.SetActive(false);
