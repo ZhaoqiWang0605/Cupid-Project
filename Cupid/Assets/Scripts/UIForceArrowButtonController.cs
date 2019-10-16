@@ -112,9 +112,9 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
         currentArrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+        arrowButtonPointer.transform.rotation = Quaternion.Euler(0, 0, -90.0f);
 
 		audio.PlayMusic();
-
 	}
 
     // Following method returns force by calculating distance between given two points

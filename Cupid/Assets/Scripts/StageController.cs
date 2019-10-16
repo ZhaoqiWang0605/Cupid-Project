@@ -9,8 +9,7 @@ using Cinemachine;
 public class StageController : MonoBehaviour
 {
     public Text scoreText;
-    public Text minuteText;
-    public Text secondText;
+    public Text timeText;
 
     public float timeLimit;
     public float clearScore;
@@ -19,8 +18,6 @@ public class StageController : MonoBehaviour
     public GameObject dialogCanvas;
     public GameObject successDialog;
     public GameObject failDialog;
-    public CinemachineVirtualCamera vcam;
-    public Transform vcamFollow;
 
 
     private float seconds;
@@ -67,10 +64,9 @@ public class StageController : MonoBehaviour
 
     void SetTimeText()
     {
-        int minute = (int)seconds / 60;
-        int second = (int)seconds % 60;
-        minuteText.text = minute.ToString();
-        secondText.text = second.ToString();
+        String minute = ((int)seconds / 60).ToString().PadLeft(2, '0');
+        String second = ((int)seconds % 60).ToString().PadLeft(2, '0');
+        timeText.text = minute + ":" + second;
     }
 
     void CheckGameEnded()
@@ -94,7 +90,6 @@ public class StageController : MonoBehaviour
         if (seconds <= 0)
         {
             gameEnded = true;
-            // GameEndFail();
             GameEnd();
         }
 
@@ -133,7 +128,6 @@ public class StageController : MonoBehaviour
         }
     }
 
-
     void GameEndSuccess(int stars)
     {
         SaveData();
@@ -142,10 +136,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(true);
         failDialog.SetActive(false);
         arrowButton.SetActive(false);
-        //successDialog.GetComponent<>
 
         successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
-
     }
 
     void GameEndFail()
@@ -161,20 +153,14 @@ public class StageController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void moveCamera(float deltaX)
-    {
-        Debug.Log("StageController.moveCamera(): " + deltaX);
-        vcamFollow.position = new Vector2(vcamFollow.position.x + deltaX, vcamFollow.position.y);
-    }
-
     public void NextStage()
     {
-        //string currentStageName = PlayerPrefs.GetString("currentStage");
-        //int nextStageNum = int.Parse(currentStageName.Replace("level", "")) + 1;
-        //string nextStageName = "level" + nextStageNum;
-        //Instantiate(Resources.Load(nextStageName));
-        //Destroy(GameObject.Find(currentStageName+"(Clone)"));
-        //Destroy(GameObject.Find("ForceArrow(Clone)"));
+        string currentStageName = PlayerPrefs.GetString("currentStage");
+        int nextStageNum = int.Parse(currentStageName.Replace("level", "")) + 1;
+        string nextStageName = "level" + nextStageNum;
+        Instantiate(Resources.Load(nextStageName));
+        Destroy(GameObject.Find(currentStageName+"(Clone)"));
+        Destroy(GameObject.Find("ForceArrow(Clone)"));
     }
 
     //存储每一关星星的数量
