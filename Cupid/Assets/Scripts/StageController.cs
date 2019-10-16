@@ -9,8 +9,7 @@ using Cinemachine;
 public class StageController : MonoBehaviour
 {
     public Text scoreText;
-    public Text minuteText;
-    public Text secondText;
+    public Text timeText;
 
     public float timeLimit;
     public float clearScore;
@@ -19,8 +18,6 @@ public class StageController : MonoBehaviour
     public GameObject dialogCanvas;
     public GameObject successDialog;
     public GameObject failDialog;
-    public CinemachineVirtualCamera vcam;
-    public Transform vcamFollow;
 
     private float seconds;
     private float currentScore = 0;
@@ -53,10 +50,9 @@ public class StageController : MonoBehaviour
 
     void SetTimeText()
     {
-        int minute = (int)seconds / 60;
-        int second = (int)seconds % 60;
-        minuteText.text = minute.ToString();
-        secondText.text = second.ToString();
+        String minute = ((int)seconds / 60).ToString().PadLeft(2, '0');
+        String second = ((int)seconds % 60).ToString().PadLeft(2, '0');
+        timeText.text = minute + ":" + second;
     }
 
     void CheckGameEnded()
@@ -103,11 +99,5 @@ public class StageController : MonoBehaviour
 
     public void loadScene(String sceneName) {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void moveCamera(float deltaX)
-    {
-        Debug.Log("StageController.moveCamera(): " + deltaX);
-        vcamFollow.position = new Vector2(vcamFollow.position.x + deltaX, vcamFollow.position.y);
     }
 }
