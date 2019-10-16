@@ -43,6 +43,7 @@ public class StageController : MonoBehaviour
         dialogCanvas.SetActive(false);
         successDialog.SetActive(false);
         failDialog.SetActive(false);
+        Debug.Log(PlayerPrefs.GetString("currentStage") + " start");
     }
 
     // Update is called once per frame
@@ -67,6 +68,7 @@ public class StageController : MonoBehaviour
         String minute = ((int)seconds / 60).ToString().PadLeft(2, '0');
         String second = ((int)seconds % 60).ToString().PadLeft(2, '0');
         timeText.text = minute + ":" + second;
+        Debug.Log(PlayerPrefs.GetString("currentStage") + "time set");
     }
 
     void CheckGameEnded()
@@ -158,9 +160,8 @@ public class StageController : MonoBehaviour
         string currentStageName = PlayerPrefs.GetString("currentStage");
         int nextStageNum = int.Parse(currentStageName.Replace("level", "")) + 1;
         string nextStageName = "level" + nextStageNum;
-        Instantiate(Resources.Load(nextStageName));
-        Destroy(GameObject.Find(currentStageName+"(Clone)"));
-        Destroy(GameObject.Find("ForceArrow(Clone)"));
+        PlayerPrefs.SetString("currentStage", nextStageName);
+        SceneManager.LoadScene("StageScene");
     }
 
     //存储每一关星星的数量
