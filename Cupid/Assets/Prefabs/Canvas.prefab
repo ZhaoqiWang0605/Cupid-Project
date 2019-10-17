@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 970951234168550400}
   - component: {fileID: 970951234168550401}
   m_Layer: 5
-  m_Name: MinuteText
+  m_Name: TimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,6 +997,9 @@ MonoBehaviour:
   maxDis: 50
   forceArrowPrefab: {fileID: 6082937056054110598, guid: 8eb90c4ae8eeab74f890b36aed543c4b,
     type: 3}
+  projectArcPoint: {fileID: 0}
+  projectArcPointCount: 30
+  audio: {fileID: 0}
 --- !u!1 &970951234632447641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.854666}
   m_AnchorMax: {x: 0.54375, y: 1}
-  m_AnchoredPosition: {x: 0.025005, y: 0}
+  m_AnchoredPosition: {x: 0.025024414, y: 0}
   m_SizeDelta: {x: -0.049988, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6984187787985817602

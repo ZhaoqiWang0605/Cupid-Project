@@ -7,6 +7,7 @@ public class ForceArrowController : MonoBehaviour
     public UIForceArrowButtonController uIForceArrowButtonController;
 
     private Rigidbody2D rg;
+    private bool launched = false;
     private bool collided = false;
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class ForceArrowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!collided) {
+        if (launched && !collided) {
             rotate();
         }
     }
@@ -31,6 +32,7 @@ public class ForceArrowController : MonoBehaviour
     public void launch(Vector2 force)
     {
         Debug.Log("launch");
+        launched = true;
         rg.bodyType = RigidbodyType2D.Dynamic;
         rg.AddForce(force, ForceMode2D.Impulse);
     }

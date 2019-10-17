@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -20,23 +19,8 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
 	public Audio audio;
 
-	private void start()
-    {
-        arcPoints = new List<GameObject>();
-        //   points object are instatiated
-        for (int i = 0; i < projectArcPointCount; i++)
-        {
-            GameObject point = (GameObject)Instantiate(projectArcPoint);
-            point.GetComponent<Renderer>().enabled = false;
-            arcPoints.Insert(i, point);
-        }
-    }
-
     private void Awake()
     {
-        /*Debug.Log("transform.Position: " + transform.position.ToString());
-        Debug.Log("RectTransform.localPosition: " + GetComponent<RectTransform>().localPosition.ToString());
-        Debug.Log("RectTransform.anchoredPosition: " + GetComponent<RectTransform>().anchoredPosition.ToString());*/
         centerPosition = transform.position;
         nextArrow();
 
@@ -45,6 +29,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         for (int i = 0; i < projectArcPointCount; i++)
         {
             GameObject point = (GameObject)Instantiate(projectArcPoint);
+            point.transform.parent = cupidAnchor;
             point.GetComponent<Renderer>().enabled = false;
             arcPoints.Insert(i, point);
         }
@@ -62,11 +47,13 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void nextArrow()
     {
         Debug.Log("UIForceArrowButtonController.nextArrow()");
-        Vector3 newArrowPosition = new Vector3(cupidAnchor.position.x + 0.1f, cupidAnchor.position.y, cupidAnchor.position.z);
-        currentArrow = Instantiate(forceArrowPrefab, newArrowPosition, Quaternion.identity).GetComponent<ForceArrowController>();
+        //Vector3 newArrowPosition = new Vector3(cupidAnchor.position.x + 0.1f, cupidAnchor.position.y, cupidAnchor.position.z);
+        //currentArrow = Instantiate(forceArrowPrefab, newArrowPosition, Quaternion.identity).GetComponent<ForceArrowController>();
+        currentArrow = Instantiate(forceArrowPrefab, cupidAnchor).GetComponent<ForceArrowController>();
         if (currentArrow != null)
         {
             currentArrow.GetComponent<ForceArrowController>().uIForceArrowButtonController = this;
+            //currentArrow.transform.parent = cupidAnchor;
         }
         else
         {
@@ -91,10 +78,10 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //draw projectile arc
         Vector3 force = GetForceFromTwoPoint(transform.position, centerPosition);
         float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        //transform.eulerAngles = new Vector3(0, 0, angle);
         setTrajectoryPoints(currentArrow.getArrowPosition(), force / currentArrow.getArrowMass());
 
-        // Rotate cupid, arrow and arrowButtonPointer as we rotate force arrow button
+        // Rotate cupid and arrowButtonPointer as we rotate force arrow button
         float rotationAngle = Mathf.Atan2(-posDelta.y, -posDelta.x) * Mathf.Rad2Deg;
         cupidAnchor.rotation = Quaternion.Euler(0, 0, rotationAngle);
         currentArrow.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
@@ -105,7 +92,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     {
         Debug.Log("OnEndDrag()");
         Vector2 force = GetForceFromTwoPoint(transform.position, centerPosition);
-        RemooveProjectileArc();
+        RemoveProjectileArc();
         currentArrow.launch(force);
         transform.position = centerPosition;
 
@@ -146,7 +133,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         }
     }
 
-    private void RemooveProjectileArc()
+    private void RemoveProjectileArc()
     {
         for (int i = 0; i < projectArcPointCount; i++)
         {
