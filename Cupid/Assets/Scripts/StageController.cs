@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
 
-
-
 public class StageController : MonoBehaviour
 {
     public Text scoreText;
@@ -40,7 +38,6 @@ public class StageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //data.Init(score1, score2, score3);
         seconds = timeLimit;
         SetCountText();
         dialogCanvas.SetActive(false);
@@ -62,7 +59,6 @@ public class StageController : MonoBehaviour
 
     void SetCountText()
     {
-        //scoreText.text = currentScore.ToString().PadLeft(5, '0');
         scoreText.text = currentScore.ToString();
     }
 
