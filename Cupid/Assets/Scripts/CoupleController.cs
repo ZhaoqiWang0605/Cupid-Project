@@ -4,7 +4,9 @@ public class CoupleController : MonoBehaviour
 {
     public ParticleSystem heartEffect;
     public StageController stageController;
-
+    public GameObject couple;
+    public Sprite couple_inLove_image;
+    public float inLove_image_size;
     public Audio audio;
 
     private bool inLove = false;
@@ -24,6 +26,8 @@ public class CoupleController : MonoBehaviour
         inLove = true;
         heartEffect.Play();
         Debug.Log("CoupleController.inLove(): Couple inLoved");
+        couple.GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
+        couple.transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
         stageController.UpdateScore(0);
         audio.PlayMusic();
     }
