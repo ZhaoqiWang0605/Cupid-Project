@@ -4,6 +4,7 @@ public class CoupleController : MonoBehaviour
 {
     public ParticleSystem heartEffect;
     public StageController stageController;
+    public SpriteRenderer sr;
     public Sprite couple_inLove_image;
     public float inLove_image_size;
     public Audio audio;
@@ -13,6 +14,7 @@ public class CoupleController : MonoBehaviour
     void Start()
     {
         stageController = GameObject.Find("StageController").GetComponent<StageController>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,5 +39,16 @@ public class CoupleController : MonoBehaviour
 
     public bool isInLove() {
         return inLove;
+    }
+
+    public void EnableFreeze()
+    {
+
+        sr.color = new Color(0.3647f, 0.7843f, 1.0f, 1.0f);
+    }
+
+    public void DisableFreeze()
+    {
+        sr.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
