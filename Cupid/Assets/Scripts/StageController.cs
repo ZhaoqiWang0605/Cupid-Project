@@ -89,6 +89,7 @@ public class StageController : MonoBehaviour
         {
             starsNum = 0;
             GameEndFail();
+            return;
         }
         else if (currentScore < score2)
         {
