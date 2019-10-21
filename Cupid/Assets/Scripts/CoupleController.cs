@@ -29,7 +29,7 @@ public class CoupleController : MonoBehaviour
             Debug.Log("CoupleController.inLove(): Set couple in love");
             GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
             transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
-            stageController.UpdateScore(0);
+            stageController.UpdateScore(1000);
             audio.PlayMusic();
         }
         Debug.Log("CoupleController.inLove(): Couple already in love");
