@@ -34,7 +34,6 @@ public class CoupleController : MonoBehaviour
             audio.PlayMusic();
         }
         Debug.Log("CoupleController.inLove(): Couple already in love");
-
     }
 
     public bool isInLove() {
