@@ -23,13 +23,17 @@ public class CoupleController : MonoBehaviour
     }
 
     public void setInLove() {
-        inLove = true;
-        heartEffect.Play();
-        Debug.Log("CoupleController.inLove(): Couple inLoved");
-        couple.GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
-        couple.transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
-        stageController.UpdateScore(0);
-        audio.PlayMusic();
+        if (!inLove)
+        {
+            inLove = true;
+            heartEffect.Play();
+            Debug.Log("CoupleController.inLove(): Set couple in love");
+            couple.GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
+            couple.transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
+            stageController.UpdateScore(0);
+            audio.PlayMusic();
+        }
+        Debug.Log("CoupleController.inLove(): Couple already in love");
     }
 
     public bool isInLove() {
