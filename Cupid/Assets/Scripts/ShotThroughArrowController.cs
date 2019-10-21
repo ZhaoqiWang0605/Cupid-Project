@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceArrowController : MonoBehaviour, ILaunchable
+public class ShotThroughArrowController : MonoBehaviour, ILaunchable
 {
-    public UIForceArrowButtonController uIForceArrowButtonController {get; set;}
+    public UIForceArrowButtonController uIForceArrowButtonController { get; set; }
     public GameObject mGameObject { get; set; }
 
     private Vector2 originalPos;
@@ -23,7 +23,8 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
     // Update is called once per frame
     void Update()
     {
-        if (launched && !collided) {
+        if (launched)
+        {
             rotate();
         }
 
@@ -34,7 +35,8 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
         }
     }
 
-    void rotate() {
+    void rotate()
+    {
         float rotationZ = Mathf.Atan2(rg.velocity.y, rg.velocity.x) * Mathf.Rad2Deg;
         rg.rotation = rotationZ;
     }
@@ -49,44 +51,32 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!collided)
+        Debug.Log("OnCollisionEnter2D");
+        TerrainController terrain = col.gameObject.GetComponent<TerrainController>();
+        if (terrain != null)
         {
-            Debug.Log("OnCollisionEnter2D");
-            TerrainController terrain = col.gameObject.GetComponent<TerrainController>();
-            if (terrain != null)
-            {
-                collided = true;
-                collideWithTerrain();
-            }
-
-            CoupleController couple = col.gameObject.GetComponent<CoupleController>();
-            if (couple != null)
-            {
-                collided = true;
-                collideWithCouple(couple);
-            }
+            collided = true;
+            collideWithTerrain();
         }
 
+        CoupleController couple = col.gameObject.GetComponent<CoupleController>();
+        if (couple != null)
+        {
+            collided = true;
+            collideWithCouple(couple);
+        }
     }
 
     public void collideWithTerrain()
     {
         Debug.Log("collideWithTerrain");
-        rg.bodyType = RigidbodyType2D.Static;
-        uIForceArrowButtonController.nextArrow();
-        //Destroy(gameObject, 0.5f);
-        Destroy(gameObject);
     }
 
     public void collideWithCouple(CoupleController couple)
     {
         Debug.Log("collideWithCouple");
-        rg.bodyType = RigidbodyType2D.Static;
         couple.setInLove();
-        uIForceArrowButtonController.nextArrow();
         uIForceArrowButtonController.moveCupidXto(transform.position.x);
-        //Destroy(gameObject, 0.5f);
-        Destroy(gameObject);
     }
 
     public float getArrowMass()
@@ -104,3 +94,4 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
         Destroy(gameObject);
     }
 }
+
