@@ -7,9 +7,11 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public Transform cupidAnchor;
     public RectTransform arrowButtonPointer;
     public float maxDis;
-    public GameObject forceArrowPrefab;
+    public List<GameObject> arrowPrefabs;
 
-    private ForceArrowController currentArrow;
+    private int currentArrowType = 0;
+    private ILaunchable currentArrow;
+
     private Vector3 centerPosition;
     private float power = 0.25f;
 
@@ -46,9 +48,10 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     void Update()
     {
-        if (Vector3.Distance(cupidAnchor.position, currentArrow.gameObject.transform.position) > 20.0f)
+        if (Vector3.Distance(cupidAnchor.position, currentArrow.mGameObject.transform.position) > 20.0f)
         {
-            Destroy(currentArrow.gameObject);
+            Destroy(currentArrow.mGameObject);
+            //currentArrow.Destroy();
             nextArrow();
         }
         cupidAnchor.position = Vector2.SmoothDamp(cupidAnchor.position, cupidTargetPos, ref velocity, smoothTime);
@@ -57,24 +60,27 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void nextArrow()
     {
         Debug.Log("UIForceArrowButtonController.nextArrow()");
-        //Vector3 newArrowPosition = new Vector3(cupidAnchor.position.x + 0.1f, cupidAnchor.position.y, cupidAnchor.position.z);
-        //currentArrow = Instantiate(forceArrowPrefab, newArrowPosition, Quaternion.identity).GetComponent<ForceArrowController>();
-        currentArrow = Instantiate(forceArrowPrefab, cupidAnchor).GetComponent<ForceArrowController>();
-        if (currentArrow != null)
-        {
-            currentArrow.GetComponent<ForceArrowController>().uIForceArrowButtonController = this;
-            //currentArrow.transform.parent = cupidAnchor;
-        }
-        else
-        {
-            Debug.Log("ForceArrowButton.nextArrow(): ForceArrow prefab instantiated, but couldn't get prefab's ForceArrowController.");
-        }
+        /*
+        currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor);
+        currentArrow.GetComponent<ILaunchable>().uIForceArrowButtonController = this;
+        */
+        currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor).GetComponent<ILaunchable>();
+        currentArrow.mGameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
+        currentArrow.uIForceArrowButtonController = this;
     }
 
     public void moveCupidXto(float xPos)
     {
         cupidTargetPos = new Vector2(xPos, cupidTargetPos.y);
         moveableCameraController.setFollowPosition(cupidTargetPos);
+    }
+
+    public void changeArrow(int type)
+    {
+        currentArrowType = type;
+        Destroy(currentArrow.mGameObject);
+        //currentArrow.Destroy();
+        nextArrow();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -96,11 +102,12 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
         //transform.eulerAngles = new Vector3(0, 0, angle);
         setTrajectoryPoints(currentArrow.getArrowPosition(), force / currentArrow.getArrowMass());
+        
 
         // Rotate cupid and arrowButtonPointer as we rotate force arrow button
         float rotationAngle = Mathf.Atan2(-posDelta.y, -posDelta.x) * Mathf.Rad2Deg;
         cupidAnchor.rotation = Quaternion.Euler(0, 0, rotationAngle);
-        currentArrow.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+        currentArrow.mGameObject.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
         arrowButtonPointer.transform.rotation = Quaternion.Euler(0, 0, rotationAngle - 90.0f);
     }
 
@@ -114,7 +121,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
-        currentArrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+        currentArrow.mGameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         arrowButtonPointer.transform.rotation = Quaternion.Euler(0, 0, -90.0f);
 
 		audio.PlayMusic();
