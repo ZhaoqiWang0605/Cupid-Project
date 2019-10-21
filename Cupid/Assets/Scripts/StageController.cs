@@ -28,9 +28,9 @@ public class StageController : MonoBehaviour
     private int starsNum;
 
     // Scores
-    private float score1 = 500;
-    private float score2 = 1000;
-    private float score3 = 2000;
+    public int score1 = 500;
+    public int score2 = 1000;
+    public int score3 = 2000;
 
     public Audio audio;
 
@@ -74,28 +74,13 @@ public class StageController : MonoBehaviour
 
     void CheckGameEnded()
     {
-        // First, check if all couples are in love, if they are, the player wins.
-        gameEnded = true;
-        foreach (CoupleController coupleController in coupleControllers)
-        {
-            if (!coupleController.isInLove())
-            {
-                gameEnded = false;
-            }
-        }
-        if (gameEnded) {
-            GameEnd();
-            return;
-        }
-
-        // If there exist couples that are not in love yet, check if there's still time left,
-        // if there isn't any tie left, the player loses.
-        if (seconds <= 0)
+        bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.isInLove());
+        print(allMatched);
+        if (allMatched || seconds <= 0)
         {
             gameEnded = true;
             GameEnd();
         }
-
     }
 
     void GameEnd()
@@ -104,31 +89,28 @@ public class StageController : MonoBehaviour
         {
             starsNum = 0;
             GameEndFail();
-        } else if (currentScore < score2)
+            return;
+        }
+        else if (currentScore < score2)
         {
             starsNum = 1;
-            GameEndSuccess(1);
-        } else if (currentScore < score3)
+        }
+        else if (currentScore < score3)
         {
             starsNum = 2;
-            GameEndSuccess(2);
         }
         else
         {
             starsNum = 3;
-            GameEndSuccess(3);
         }
-		audio.StopMusic();
+        GameEndSuccess(starsNum);
+        audio.StopMusic();
     }
 
-    public void UpdateScore(int type)
+    public void UpdateScore(int s)
     {
-        // 0 for people, 1 for item
-        if (type == 0)
-        {
-            currentScore += 1000;
-            scoreText.text = currentScore.ToString();
-        }
+        currentScore += 1000;
+        scoreText.text = currentScore.ToString();
     }
 
     void GameEndSuccess(int stars)
