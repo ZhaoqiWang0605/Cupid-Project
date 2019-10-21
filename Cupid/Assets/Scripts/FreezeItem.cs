@@ -26,11 +26,11 @@ public class FreezeItem : MonoBehaviour
 
         foreach (CoupleController cp in stageController.coupleControllers)
         {
-            SpriteRenderer sr = cp.gameObject.GetComponent<SpriteRenderer>();
-            //sr.color = new Color(93, 200, 255);
-            print(sr.color);
-            sr.color = new Color(0.3647f, 0.7843f, 1.0f, 1.0f);
-            //sr.material = Resources.Load<Material>("Default-Line");
+            //SpriteRenderer sr = cp.gameObject.GetComponent<SpriteRenderer>();
+            ////sr.color = new Color(93, 200, 255);
+            //print(sr.color);
+            //sr.color = new Color(0.3647f, 0.7843f, 1.0f, 1.0f);
+            cp.EnableFreeze();
         }
     }
 }
