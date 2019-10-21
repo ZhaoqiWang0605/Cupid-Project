@@ -19,6 +19,12 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
 	public Audio audio;
 
+    // Members used for moving Cupid
+    public Vector2 cupidTargetPos;
+    public float smoothTime = 0.3F;
+    private Vector2 velocity = Vector3.zero;
+    private MoveableCameraController moveableCameraController;
+
     private void Awake()
     {
         centerPosition = transform.position;
@@ -33,6 +39,9 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             point.GetComponent<Renderer>().enabled = false;
             arcPoints.Insert(i, point);
         }
+
+        cupidTargetPos = cupidAnchor.position;
+        moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
     }
 
     void Update()
@@ -42,6 +51,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             Destroy(currentArrow.gameObject);
             nextArrow();
         }
+        cupidAnchor.position = Vector2.SmoothDamp(cupidAnchor.position, cupidTargetPos, ref velocity, smoothTime);
     }
 
     public void nextArrow()
@@ -61,9 +71,15 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         }
     }
 
+    public void moveCupidXto(float xPos)
+    {
+        cupidTargetPos = new Vector2(xPos, cupidTargetPos.y);
+        moveableCameraController.setFollowPosition(cupidTargetPos);
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag() eventData.position: " + eventData.position.ToString());
+        //Debug.Log("OnDrag() eventData.position: " + eventData.position.ToString());
         
         transform.position = eventData.position;
         Vector3 posDelta = (transform.position - centerPosition).normalized;
@@ -90,7 +106,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag()");
+        //Debug.Log("OnEndDrag()");
         Vector2 force = GetForceFromTwoPoint(transform.position, centerPosition);
         RemoveProjectileArc();
         currentArrow.launch(force);

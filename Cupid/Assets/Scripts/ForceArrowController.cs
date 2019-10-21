@@ -74,13 +74,9 @@ public class ForceArrowController : MonoBehaviour
         rg.bodyType = RigidbodyType2D.Static;
         couple.setInLove();
         uIForceArrowButtonController.nextArrow();
+        uIForceArrowButtonController.moveCupidXto(transform.position.x);
         //Destroy(gameObject, 0.5f);
         Destroy(gameObject);
-    }
-
-    private void OnMouseDown()
-    {
-        Debug.Log("ForceArrowController.OnMouseDown()");
     }
 
     public float getArrowMass()

@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
+using Cinemachine;
 
 public class MoveableCameraController : MonoBehaviour
 {
+    
     private Rigidbody2D vcamFollow;
+    private CinemachineVirtualCamera cVirtualCamera;
 
     void Start()
     {
+        // Get reference of cinemanchine virtual camera sub game object
+        cVirtualCamera = transform.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+
         // Get reference of CameraFollow sub game object
         vcamFollow = transform.Find("CameraFollw").GetComponent<Rigidbody2D>();
 
@@ -42,7 +48,7 @@ public class MoveableCameraController : MonoBehaviour
         leftConfiner.transform.position = new Vector3(leftBound, transform.position.y, transform.position.z);
         leftBoxCollider.size = new Vector2(screenWidthInWorld, screenHeightInWorld);
         leftBoxCollider.offset = new Vector2(0, 0);
-        
+
 
         GameObject rightConfiner = new GameObject("CameraRightConfiner");
         BoxCollider2D rightBoxCollider = rightConfiner.AddComponent<BoxCollider2D>();
@@ -57,6 +63,11 @@ public class MoveableCameraController : MonoBehaviour
     {
         Vector2 position = vcamFollow.position;
         position.x = position.x + deltaX;
+        vcamFollow.MovePosition(position);
+    }
+
+    public void setFollowPosition(Vector2 position)
+    {
         vcamFollow.MovePosition(position);
     }
 }
