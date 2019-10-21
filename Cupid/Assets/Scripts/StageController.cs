@@ -109,7 +109,7 @@ public class StageController : MonoBehaviour
 
     public void UpdateScore(int s)
     {
-        currentScore += 1000;
+        currentScore += s;
         scoreText.text = currentScore.ToString();
     }
 
@@ -155,6 +155,11 @@ public class StageController : MonoBehaviour
             PlayerPrefs.SetInt(PlayerPrefs.GetString("currentStage"), starsNum);
             Debug.Log("set starsNum to " + starsNum);
         }
+    }
+
+    public void IncreaseTime(int s)
+    {
+        seconds += s;
     }
 
 }
