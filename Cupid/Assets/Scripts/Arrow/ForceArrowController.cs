@@ -15,9 +15,9 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
     // Start is called before the first frame update
     void Awake()
     {
-        rg = GetComponent<Rigidbody2D>();
         mGameObject = gameObject;
         originalPos = transform.position;
+        rg = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -47,47 +47,13 @@ public class ForceArrowController : MonoBehaviour, ILaunchable
         rg.AddForce(force, ForceMode2D.Impulse);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collided)
-        {
-            Debug.Log("OnCollisionEnter2D");
-            TerrainController terrain = col.gameObject.GetComponent<TerrainController>();
-            if (terrain != null)
-            {
-                collided = true;
-                collideWithTerrain();
-            }
-
-            CoupleController couple = col.gameObject.GetComponent<CoupleController>();
-            if (couple != null)
-            {
-                collided = true;
-                collideWithCouple(couple);
-            }
-        }
-
-    }
-
-    public void collideWithTerrain()
-    {
-        Debug.Log("collideWithTerrain");
         rg.bodyType = RigidbodyType2D.Static;
         uIForceArrowButtonController.nextArrow();
-        //Destroy(gameObject, 0.5f);
         Destroy(gameObject);
     }
-
-    public void collideWithCouple(CoupleController couple)
-    {
-        Debug.Log("collideWithCouple");
-        rg.bodyType = RigidbodyType2D.Static;
-        couple.setInLove();
-        uIForceArrowButtonController.nextArrow();
-        uIForceArrowButtonController.moveCupidXto(transform.position.x);
-        //Destroy(gameObject, 0.5f);
-        Destroy(gameObject);
-    }
+ 
 
     public float getArrowMass()
     {

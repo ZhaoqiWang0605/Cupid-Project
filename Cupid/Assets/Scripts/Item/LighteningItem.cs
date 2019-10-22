@@ -19,10 +19,6 @@ public class LighteningItem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ForceArrowController arrow = collision.gameObject.GetComponent<ForceArrowController>();
-        arrow.uIForceArrowButtonController.nextArrow(); 
-        Destroy(arrow.gameObject);
-        Destroy(gameObject);
         stageController.IncreaseTime(999);
 
         foreach(CoupleController cp in stageController.coupleControllers)
@@ -33,5 +29,7 @@ public class LighteningItem : MonoBehaviour
                 break;
             }
         }
+
+        Destroy(gameObject);
     }
 }

@@ -15,6 +15,8 @@ public class StageController : MonoBehaviour
     public float clearScore;
     public List<CoupleController> coupleControllers;
     public GameObject arrowButton;
+    public GameObject arrowSwitchButton;
+    public GameObject cameraButton;
     public GameObject dialogCanvas;
     public GameObject successDialog;
     public GameObject failDialog;
@@ -44,7 +46,7 @@ public class StageController : MonoBehaviour
         dialogCanvas.SetActive(false);
         successDialog.SetActive(false);
         failDialog.SetActive(false);
-        Debug.Log(PlayerPrefs.GetString("currentStage") + " start");
+        //Debug.Log(PlayerPrefs.GetString("currentStage") + " start");
     }
 
     // Update is called once per frame
@@ -60,7 +62,6 @@ public class StageController : MonoBehaviour
 
     void SetCountText()
     {
-        //scoreText.text = currentScore.ToString().PadLeft(5, '0');
         scoreText.text = currentScore.ToString();
     }
 
@@ -69,13 +70,13 @@ public class StageController : MonoBehaviour
         String minute = ((int)seconds / 60).ToString().PadLeft(2, '0');
         String second = ((int)seconds % 60).ToString().PadLeft(2, '0');
         timeText.text = minute + ":" + second;
-        Debug.Log(PlayerPrefs.GetString("currentStage") + "time set");
+        //Debug.Log(PlayerPrefs.GetString("currentStage") + "time set");
     }
 
     void CheckGameEnded()
     {
         bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.isInLove());
-        print(allMatched);
+        //Debug.Log(allMatched);
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;
@@ -128,6 +129,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(true);
         failDialog.SetActive(false);
         arrowButton.SetActive(false);
+        arrowSwitchButton.SetActive(false);
+        cameraButton.SetActive(false);
 
         successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
     }
@@ -139,6 +142,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(true);
         arrowButton.SetActive(false);
+        arrowSwitchButton.SetActive(false);
+        cameraButton.SetActive(false);
     }
 
     public void loadScene(String sceneName) {

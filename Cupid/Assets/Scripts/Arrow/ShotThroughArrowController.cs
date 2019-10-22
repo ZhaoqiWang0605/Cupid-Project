@@ -6,21 +6,21 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
 {
     public UIForceArrowButtonController uIForceArrowButtonController { get; set; }
     public GameObject mGameObject { get; set; }
+    public GameObject dummyColliderPrefab;
 
     private Vector2 originalPos;
     private Rigidbody2D rg;
     private bool launched = false;
-    private bool collided = false;
+    private HashSet<int> collidedID;
 
-    // Start is called before the first frame update
     void Awake()
     {
-        rg = GetComponent<Rigidbody2D>();
         mGameObject = gameObject;
         originalPos = transform.position;
+        rg = GetComponent<Rigidbody2D>();
+        collidedID = new HashSet<int>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (launched)
@@ -43,40 +43,23 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
 
     public void launch(Vector2 force)
     {
-        Debug.Log("launch");
-        launched = true;
-        rg.bodyType = RigidbodyType2D.Dynamic;
-        rg.AddForce(force, ForceMode2D.Impulse);
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log("OnCollisionEnter2D");
-        TerrainController terrain = col.gameObject.GetComponent<TerrainController>();
-        if (terrain != null)
+        if (!launched)
         {
-            collided = true;
-            collideWithTerrain();
-        }
-
-        CoupleController couple = col.gameObject.GetComponent<CoupleController>();
-        if (couple != null)
-        {
-            collided = true;
-            collideWithCouple(couple);
+            launched = true;
+            rg.bodyType = RigidbodyType2D.Dynamic;
+            rg.AddForce(force, ForceMode2D.Impulse);
         }
     }
 
-    public void collideWithTerrain()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collideWithTerrain");
-    }
-
-    public void collideWithCouple(CoupleController couple)
-    {
-        Debug.Log("collideWithCouple");
-        couple.setInLove();
-        uIForceArrowButtonController.moveCupidXto(transform.position.x);
+        //Debug.Log("ShotThroughArrow OnTriggerEnter");
+        if (!collidedID.Contains(collision.gameObject.GetInstanceID()))
+        {
+            collidedID.Add(collision.gameObject.GetInstanceID());
+            GameObject dummy = Instantiate(dummyColliderPrefab, collision.gameObject.transform.position, Quaternion.identity);
+            dummy.GetComponent<Rigidbody2D>().velocity = rg.velocity;
+        }
     }
 
     public float getArrowMass()

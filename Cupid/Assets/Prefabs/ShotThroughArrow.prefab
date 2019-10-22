@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4014654179992136880}
   - component: {fileID: 7305130515396609467}
   - component: {fileID: 4014654179992136885}
-  - component: {fileID: 4014654179992136884}
+  - component: {fileID: 5098183330423982934}
   m_Layer: 0
   m_Name: ShotThroughArrow
   m_TagString: Untagged
@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1994bc8abdf2ceb4e8111101ad00b3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uIForceArrowButtonController: {fileID: 0}
+  dummyColliderPrefab: {fileID: 8854139401866496189, guid: 26d226fc05d33504aafc6c8b1603521b,
+    type: 3}
 --- !u!50 &4014654179992136885
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &4014654179992136884
+--- !u!61 &5098183330423982934
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,10 +127,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.059350967, y: -0.0021958947}
+  m_Offset: {x: 0.066587895, y: -0.0020786524}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -140,5 +141,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.88129807, y: 0.031174064}
+  m_Size: {x: 0.8668242, y: 0.03154248}
   m_EdgeRadius: 0

@@ -15,8 +15,9 @@ public class ArrowController : MonoBehaviour, ILaunchable
     // Start is called before the first frame update
     void Awake()
     {
-        rg = GetComponent<Rigidbody2D>();
+        mGameObject = gameObject;
         originalPos = transform.position;
+        rg = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,9 +44,18 @@ public class ArrowController : MonoBehaviour, ILaunchable
     public void launch(Vector2 force)
     {
         Debug.Log("launch");
-        launched = true;
-        rg.bodyType = RigidbodyType2D.Dynamic;
-        rg.AddForce(force, ForceMode2D.Impulse);
+        if (!launched) {
+            launched = true;
+            rg.bodyType = RigidbodyType2D.Dynamic;
+            rg.AddForce(force, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rg.bodyType = RigidbodyType2D.Static;
+        uIForceArrowButtonController.nextArrow();
+        Destroy(gameObject);
     }
 
     public float getArrowMass()

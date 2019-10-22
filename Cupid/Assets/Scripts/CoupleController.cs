@@ -12,17 +12,18 @@ public class CoupleController : MonoBehaviour
     public Audio audio;
 
     private bool inLove = false;
-    // Start is called before the first frame update
+    private UIForceArrowButtonController uIForceArrowButtonController;
+
     void Start()
     {
         stageController = GameObject.Find("StageController").GetComponent<StageController>();
+        uIForceArrowButtonController = GameObject.Find("ArrowButton").GetComponent<UIForceArrowButtonController>();
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        setInLove();
     }
 
     public void setInLove() {
@@ -32,7 +33,7 @@ public class CoupleController : MonoBehaviour
             hitEffect.Play();
             StartCoroutine(Sleep());
         }
-        Debug.Log("CoupleController.inLove(): Couple already in love");
+        uIForceArrowButtonController.moveCupidXto(transform.position.x);
     }
 
     private void ChangeInLoveCoupleImage()
