@@ -4866,6 +4866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartEffect: {fileID: 8121556879332331758}
   stageController: {fileID: 0}
+  sr: {fileID: 0}
   couple_inLove_image: {fileID: 0}
   inLove_image_size: 0
   audio: {fileID: 0}
