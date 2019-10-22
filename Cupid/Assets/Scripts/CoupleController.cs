@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CoupleController : MonoBehaviour
 {
     public ParticleSystem heartEffect;
+    public ParticleSystem hitEffect;
     public StageController stageController;
     public SpriteRenderer sr;
     public Sprite couple_inLove_image;
@@ -27,14 +29,25 @@ public class CoupleController : MonoBehaviour
         if (!inLove)
         {
             inLove = true;
-            heartEffect.Play();
-            Debug.Log("CoupleController.inLove(): Set couple in love");
-            GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
-            transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
-            stageController.UpdateScore(1000);
-            //audio.PlayMusic();
+            hitEffect.Play();
+            StartCoroutine(SleepAWhile());
         }
         Debug.Log("CoupleController.inLove(): Couple already in love");
+    }
+
+    private void ChangeInLoveCoupleImage()
+    {
+        heartEffect.Play();
+        Debug.Log("CoupleController.inLove(): Set couple in love");
+        GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
+        transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
+        stageController.UpdateScore(1000);
+        //audio.PlayMusic();
+    }
+
+    IEnumerator SleepAWhile() {
+        yield return new WaitForSeconds(2);
+        ChangeInLoveCoupleImage();
     }
 
     public bool isInLove() {
