@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1907434550502496511}
   - component: {fileID: 487200901810835177}
   - component: {fileID: 4250863919624686064}
+  - component: {fileID: 300135903468333997}
   m_Layer: 0
   m_Name: LighteningItem
   m_TagString: Untagged
@@ -117,5 +118,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea0535bc810b64476b9270f899eb1d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &300135903468333997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001249672947331009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee7cbc7e787c4ff09ea0fafbea3b2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
