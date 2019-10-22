@@ -79,14 +79,8 @@ public class StageController : MonoBehaviour
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;
-            StartCoroutine(Sleep());
+            GameEnd();
         }
-    }
-
-    IEnumerator Sleep()
-    {
-        yield return new WaitForSeconds(4);
-        GameEnd();
     }
 
     void GameEnd()
@@ -94,6 +88,7 @@ public class StageController : MonoBehaviour
         if (currentScore < score1)
         {
             starsNum = 0;
+            audio.StopMusic();
             GameEndFail();
             return;
         }
@@ -109,6 +104,12 @@ public class StageController : MonoBehaviour
         {
             starsNum = 3;
         }
+        StartCoroutine(Sleep());
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(4);
         GameEndSuccess(starsNum);
         audio.StopMusic();
     }
