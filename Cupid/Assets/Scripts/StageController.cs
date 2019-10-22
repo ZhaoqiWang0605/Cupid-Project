@@ -88,6 +88,7 @@ public class StageController : MonoBehaviour
         if (currentScore < score1)
         {
             starsNum = 0;
+            audio.StopMusic();
             GameEndFail();
             return;
         }
@@ -103,6 +104,12 @@ public class StageController : MonoBehaviour
         {
             starsNum = 3;
         }
+        StartCoroutine(Sleep());
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(4);
         GameEndSuccess(starsNum);
         audio.StopMusic();
     }
