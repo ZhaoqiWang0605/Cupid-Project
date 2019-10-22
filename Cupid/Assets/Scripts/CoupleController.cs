@@ -30,7 +30,7 @@ public class CoupleController : MonoBehaviour
         {
             inLove = true;
             hitEffect.Play();
-            StartCoroutine(SleepAWhile());
+            StartCoroutine(Sleep());
         }
         Debug.Log("CoupleController.inLove(): Couple already in love");
     }
@@ -45,7 +45,7 @@ public class CoupleController : MonoBehaviour
         //audio.PlayMusic();
     }
 
-    IEnumerator SleepAWhile() {
+    IEnumerator Sleep() {
         yield return new WaitForSeconds(2);
         ChangeInLoveCoupleImage();
     }

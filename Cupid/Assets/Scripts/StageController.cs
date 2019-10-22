@@ -79,8 +79,14 @@ public class StageController : MonoBehaviour
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;
-            GameEnd();
+            StartCoroutine(Sleep());
         }
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(4);
+        GameEnd();
     }
 
     void GameEnd()
