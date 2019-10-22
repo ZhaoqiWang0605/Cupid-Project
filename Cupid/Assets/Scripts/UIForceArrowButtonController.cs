@@ -36,8 +36,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //   points object are instatiated
         for (int i = 0; i < projectArcPointCount; i++)
         {
-            GameObject point = (GameObject)Instantiate(projectArcPoint);
-            point.transform.parent = cupidAnchor;
+            GameObject point = (GameObject)Instantiate(projectArcPoint, cupidAnchor);
             point.GetComponent<Renderer>().enabled = false;
             arcPoints.Insert(i, point);
         }
@@ -89,12 +88,12 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         
         transform.position = eventData.position;
         Vector3 posDelta = (transform.position - centerPosition).normalized;
-        Debug.Log("posDelta normalized: " + posDelta.ToString());
+        //Debug.Log("posDelta normalized: " + posDelta.ToString());
         if (Vector3.Distance(transform.position, centerPosition) > maxDis)
         {
             posDelta *= maxDis;
-            Debug.Log("maxDis: " + maxDis);
-            Debug.Log("posDelta multiplied: " + posDelta.ToString());
+            //Debug.Log("maxDis: " + maxDis);
+            //Debug.Log("posDelta multiplied: " + posDelta.ToString());
             transform.position = centerPosition + posDelta;
         }
         //draw projectile arc

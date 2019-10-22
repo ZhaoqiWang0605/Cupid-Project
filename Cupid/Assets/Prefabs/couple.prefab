@@ -4836,7 +4836,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0009070635, y: 0.0029613972}
@@ -4866,6 +4866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartEffect: {fileID: 8121556879332331758}
   stageController: {fileID: 0}
+  sr: {fileID: 0}
   couple_inLove_image: {fileID: 0}
   inLove_image_size: 0
   audio: {fileID: 0}

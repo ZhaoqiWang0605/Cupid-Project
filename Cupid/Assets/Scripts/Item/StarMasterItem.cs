@@ -19,9 +19,6 @@ public class StarMasterItem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ForceArrowController arrow = collision.gameObject.GetComponent<ForceArrowController>();
-        arrow.uIForceArrowButtonController.nextArrow();
-        Destroy(arrow.gameObject);
         Destroy(gameObject);
         int s = Random.Range(100, 10000);
         print("Star Master: " + s);

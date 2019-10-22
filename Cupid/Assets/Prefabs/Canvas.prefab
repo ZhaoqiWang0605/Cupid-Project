@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 970951234615429410}
   - component: {fileID: 970951234615429420}
   m_Layer: 5
-  m_Name: ArrowButon
+  m_Name: ArrowButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,7 +1161,8 @@ MonoBehaviour:
   arrowPrefabs:
   - {fileID: 6082937056054110598, guid: 8eb90c4ae8eeab74f890b36aed543c4b, type: 3}
   - {fileID: 4014654179992136881, guid: 057585fb846b85d4380cd3846fbd5a6e, type: 3}
-  projectArcPoint: {fileID: 0}
+  projectArcPoint: {fileID: 9040836586303556216, guid: 12208d8cac84649d7b4790c654605a93,
+    type: 3}
   projectArcPointCount: 30
   audio: {fileID: 0}
   cupidTargetPos: {x: 0, y: 0}
