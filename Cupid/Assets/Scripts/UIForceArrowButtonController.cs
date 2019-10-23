@@ -37,6 +37,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         for (int i = 0; i < projectArcPointCount; i++)
         {
             GameObject point = (GameObject)Instantiate(projectArcPoint, cupidAnchor);
+            point.GetComponent<SpriteRenderer>().sortingOrder = 2;
             point.GetComponent<Renderer>().enabled = false;
             arcPoints.Insert(i, point);
         }
