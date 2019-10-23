@@ -10,6 +10,7 @@ public class CoupleController : MonoBehaviour
     public Sprite couple_inLove_image;
     public float inLove_image_size;
     public Audio audio;
+    public bool moveCupidAfterHit = true;
 
     private bool inLove = false;
     private UIForceArrowButtonController uIForceArrowButtonController;
@@ -30,10 +31,15 @@ public class CoupleController : MonoBehaviour
         if (!inLove)
         {
             inLove = true;
+            stageController.UpdateScore(1000);
             hitEffect.Play();
+            if (moveCupidAfterHit)
+            {
+                uIForceArrowButtonController.moveCupidXto(transform.position.x);
+            }
             StartCoroutine(Sleep());
         }
-        uIForceArrowButtonController.moveCupidXto(transform.position.x);
+        
     }
 
     private void ChangeInLoveCoupleImage()
@@ -42,7 +48,6 @@ public class CoupleController : MonoBehaviour
         Debug.Log("CoupleController.inLove(): Set couple in love");
         GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
         transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
-        stageController.UpdateScore(1000);
         //audio.PlayMusic();
     }
 
