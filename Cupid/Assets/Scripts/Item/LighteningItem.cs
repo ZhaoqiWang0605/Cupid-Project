@@ -19,8 +19,6 @@ public class LighteningItem : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        stageController.IncreaseTime(999);
-
         foreach(CoupleController cp in stageController.coupleControllers)
         {
             if (!cp.isInLove())
