@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14054fb151dc84b58a2f154e2ea3a6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: 4ce79c51dd74e40f78322d328edd0f44, type: 3}
+  musicClip: {fileID: 8300000, guid: f163992c1b6142e49b92c19435b05988, type: 3}
   musicSource: {fileID: 4981178352927837161}
   isBackground: 0
 --- !u!1 &4981178353153922920
@@ -2529,50 +2529,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1538872803249820243, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -8.897442
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -8.897442
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 23.05354
-      objectReference: {fileID: 0}
     - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 23.05354
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
-        type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -5.176951
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538872802509832451, guid: f7cce0787667d4040b99fd7af2eab564,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7cce0787667d4040b99fd7af2eab564, type: 3}
