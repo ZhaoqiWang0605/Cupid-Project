@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14054fb151dc84b58a2f154e2ea3a6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: a70aa0c1a545a4258b740c1cb776757b, type: 3}
+  musicClip: {fileID: 8300000, guid: 8a8548f76b6c0684e8bcaf957d11076f, type: 3}
   musicSource: {fileID: 449188781}
   isBackground: 1
 --- !u!82 &449188781
