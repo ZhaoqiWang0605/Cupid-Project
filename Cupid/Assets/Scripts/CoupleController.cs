@@ -32,6 +32,7 @@ public class CoupleController : MonoBehaviour
         {
             inLove = true;
             stageController.UpdateScore(1000);
+            audio.PlayMusic();
             hitEffect.Play();
             if (moveCupidAfterHit)
             {
@@ -48,7 +49,6 @@ public class CoupleController : MonoBehaviour
         Debug.Log("CoupleController.inLove(): Set couple in love");
         GetComponent<SpriteRenderer>().sprite = couple_inLove_image;
         transform.localScale = new Vector3(inLove_image_size, inLove_image_size, 1.0f);
-        //audio.PlayMusic();
     }
 
     IEnumerator Sleep() {
