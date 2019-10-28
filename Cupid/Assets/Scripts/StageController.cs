@@ -34,7 +34,7 @@ public class StageController : MonoBehaviour
     public int score2 = 1000;
     public int score3 = 2000;
 
-    public Audio audio;
+    //public Audio audio;
 
 
     // Start is called before the first frame update
@@ -89,7 +89,6 @@ public class StageController : MonoBehaviour
         if (currentScore < score1)
         {
             starsNum = 0;
-            audio.StopMusic();
             GameEndFail();
             return;
         }
@@ -124,7 +123,8 @@ public class StageController : MonoBehaviour
     {
         SaveData();
         print(stars);
-        audio.StopMusic();
+        //audio.StopMusic();
+        stopBackgroundMusic();
         dialogCanvas.SetActive(true);
         successDialog.SetActive(true);
         failDialog.SetActive(false);
@@ -138,6 +138,7 @@ public class StageController : MonoBehaviour
     void GameEndFail()
     {
         SaveData();
+        stopBackgroundMusic();
         dialogCanvas.SetActive(true);
         successDialog.SetActive(false);
         failDialog.SetActive(true);
@@ -182,5 +183,10 @@ public class StageController : MonoBehaviour
     public static void GameResume()
     {
         Time.timeScale = 1;
+    }
+
+    private void stopBackgroundMusic()
+    {
+        this.GetComponent<AudioSource>().Stop();
     }
 }
