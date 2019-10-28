@@ -174,4 +174,13 @@ public class StageController : MonoBehaviour
         seconds += s;
     }
 
+
+    public static void GamePause()
+    {
+        Time.timeScale = 0;
+    }
+    public static void GameResume()
+    {
+        Time.timeScale = 1;
+    }
 }
