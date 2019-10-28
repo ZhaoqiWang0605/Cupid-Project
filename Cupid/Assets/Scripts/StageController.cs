@@ -112,7 +112,6 @@ public class StageController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         GameEndSuccess(starsNum);
-        audio.StopMusic();
     }
 
     public void UpdateScore(int s)
@@ -125,6 +124,7 @@ public class StageController : MonoBehaviour
     {
         SaveData();
         print(stars);
+        audio.StopMusic();
         dialogCanvas.SetActive(true);
         successDialog.SetActive(true);
         failDialog.SetActive(false);
