@@ -35,6 +35,7 @@ public class MainScene : MonoBehaviour
 
     public void PlayButton()
     {
+        GameObject.Find("playButton").GetComponent<Audio>().PlayMusic();
         SceneManager.LoadScene("StageMapScene");
     }
 }

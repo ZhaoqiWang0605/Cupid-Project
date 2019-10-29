@@ -50,10 +50,19 @@ public class LevelSelect : MonoBehaviour
     {
         if (canSelect)
         {
+            PlayBtnMusic();
             Debug.Log(levelName);
             //保存当前关卡名字在currentStage中
             PlayerPrefs.SetString("currentStage", levelName);
             SceneManager.LoadScene("StageScene");
+            //SceneManager.LoadScene("MainScene");
         }
+    }
+
+    private void PlayBtnMusic()
+    {
+        int preStageNo = int.Parse(stageNo.GetComponent<Text>().text);
+        string whichBtn = "playBtn" + preStageNo;
+        GameObject.Find(whichBtn).GetComponent<Audio>().PlayMusic();
     }
 }
