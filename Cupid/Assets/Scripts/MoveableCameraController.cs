@@ -18,8 +18,6 @@ public class MoveableCameraController : MonoBehaviour
     private bool reseted = false;
     private bool pressedOnUI = false;
 
-    private Vector3 prevCamPos;
-
     void Start()
     {
         // Get reference of cinemanchine virtual camera sub game object
@@ -59,16 +57,16 @@ public class MoveableCameraController : MonoBehaviour
         }
 
         // Calculate camera moveing and zooming bound.
-        upperBound -= (screenHeightInWorld / 2);
-        lowerBound += (screenHeightInWorld / 2);
-        leftBound += (screenWidthInWorld / 2);
-        rightBound -= (screenWidthInWorld / 2);
+        //upperBound -= (screenHeightInWorld / 2);
+        //lowerBound += (screenHeightInWorld / 2);
+        //leftBound += (screenWidthInWorld / 2);
+        //rightBound -= (screenWidthInWorld / 2);
 
         zoomOutMax = screenHeightInWorld / 2;
 
         // Move camera into confined space if it is not inside
-        float newX = Mathf.Clamp(cVirtualCamera.transform.position.x, leftBound, rightBound);
-        float newY = Mathf.Clamp(cVirtualCamera.transform.position.y, lowerBound, upperBound);
+        float newX = Mathf.Clamp(cVirtualCamera.transform.position.x, leftBound + (screenWidthInWorld / 2), rightBound - (screenWidthInWorld / 2));
+        float newY = Mathf.Clamp(cVirtualCamera.transform.position.y, lowerBound + (screenHeightInWorld / 2), upperBound - (screenHeightInWorld / 2));
         cVirtualCamera.transform.position = new Vector3(newX, newY, cVirtualCamera.transform.position.z);
     }
 
@@ -111,12 +109,18 @@ public class MoveableCameraController : MonoBehaviour
 
     private void moveCameraByTouch()
     {
-        
+        // Calculate screen size in unity game world unit
+        Vector3 p1 = Camera.main.ScreenToWorldPoint(Vector3.zero);
+        Vector3 p2 = Camera.main.ScreenToWorldPoint(Vector3.right);
+        float unit = Vector3.Distance(p1, p2);
+        float screenWidthInWorld = Screen.width * unit;
+        float screenHeightInWorld = Screen.height * unit;
+
         if (!reseted && (
-                Mathf.Approximately(cVirtualCamera.transform.position.x, leftBound) ||
-                Mathf.Approximately(cVirtualCamera.transform.position.x, rightBound) ||
-                Mathf.Approximately(cVirtualCamera.transform.position.y, upperBound) ||
-                Mathf.Approximately(cVirtualCamera.transform.position.y, lowerBound)))
+                Mathf.Approximately(cVirtualCamera.transform.position.x, leftBound + (screenWidthInWorld / 2)) ||
+                Mathf.Approximately(cVirtualCamera.transform.position.x, rightBound - (screenWidthInWorld / 2)) ||
+                Mathf.Approximately(cVirtualCamera.transform.position.y, upperBound - (screenHeightInWorld / 2)) ||
+                Mathf.Approximately(cVirtualCamera.transform.position.y, lowerBound + (screenHeightInWorld / 2))))
         {
             touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             reseted = true;
@@ -127,8 +131,8 @@ public class MoveableCameraController : MonoBehaviour
         }
 
         Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float newX = Mathf.Clamp(cVirtualCamera.transform.position.x + direction.x, leftBound, rightBound);
-        float newY = Mathf.Clamp(cVirtualCamera.transform.position.y + direction.y, lowerBound, upperBound);
+        float newX = Mathf.Clamp(cVirtualCamera.transform.position.x + direction.x, leftBound + (screenWidthInWorld / 2), rightBound - (screenWidthInWorld / 2));
+        float newY = Mathf.Clamp(cVirtualCamera.transform.position.y + direction.y, lowerBound + (screenHeightInWorld / 2), upperBound - (screenHeightInWorld / 2));
         cVirtualCamera.transform.position = new Vector3(newX, newY, cVirtualCamera.transform.position.z);
 
         Debug.Log(upperBound + "/" + lowerBound);
@@ -155,6 +159,21 @@ public class MoveableCameraController : MonoBehaviour
     public void zoom(float increment)
     {
         cVirtualCamera.m_Lens.OrthographicSize = Mathf.Clamp(cVirtualCamera.m_Lens.OrthographicSize - increment, zoomOutMin, zoomOutMax);
+
+        // Calculate screen size in unity game world unit
+        Vector3 p1 = Camera.main.ScreenToWorldPoint(Vector3.zero);
+        Vector3 p2 = Camera.main.ScreenToWorldPoint(Vector3.right);
+        float unit = Vector3.Distance(p1, p2);
+        float screenWidthInWorld = Screen.width * unit;
+        float screenHeightInWorld = Screen.height * unit;
+
+        screenHeightInWorld = cVirtualCamera.m_Lens.OrthographicSize*2;
+        screenWidthInWorld = screenHeightInWorld / Screen.height * Screen.width;
+
+        // Move camera into confined space if it is not inside
+        float newX = Mathf.Clamp(cVirtualCamera.transform.position.x, leftBound + (screenWidthInWorld / 2), rightBound - (screenWidthInWorld / 2));
+        float newY = Mathf.Clamp(cVirtualCamera.transform.position.y, lowerBound + (screenHeightInWorld / 2), upperBound - (screenHeightInWorld / 2));
+        cVirtualCamera.transform.position = new Vector3(newX, newY, cVirtualCamera.transform.position.z);
     }
 
     public void setFollow(Transform follow)
