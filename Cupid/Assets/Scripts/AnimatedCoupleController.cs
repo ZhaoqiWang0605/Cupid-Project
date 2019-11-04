@@ -9,6 +9,7 @@ public class AnimatedCoupleController : MonoBehaviour
     private SpriteRenderer sr;
     private Audio audio;
     public bool moveCupidAfterHit = true;
+    public Transform cupidPosAfterHit;
 
     private bool inLove = false;
     private UIForceArrowButtonController uIForceArrowButtonController;
@@ -40,7 +41,8 @@ public class AnimatedCoupleController : MonoBehaviour
             hitEffect.Play();
             if (moveCupidAfterHit)
             {
-                uIForceArrowButtonController.moveCupidXto(transform.position.x);
+                //uIForceArrowButtonController.moveCupidXto(transform.position.x);
+                uIForceArrowButtonController.moveCupidTo(cupidPosAfterHit);
             }
             moveableCameraController.setFollow(transform);
             GetComponent<BoxCollider2D>().enabled = false;
