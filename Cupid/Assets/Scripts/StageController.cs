@@ -16,7 +16,6 @@ public class StageController : MonoBehaviour
     public List<CoupleController> coupleControllers;
     public GameObject arrowButton;
     public GameObject arrowSwitchButton;
-    public GameObject cameraButton;
     public GameObject dialogCanvas;
     public GameObject successDialog;
     public GameObject failDialog;
@@ -129,7 +128,6 @@ public class StageController : MonoBehaviour
         pauseDialog.SetActive(false);
         arrowButton.SetActive(false);
         arrowSwitchButton.SetActive(false);
-        cameraButton.SetActive(false);
 
         successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
     }
@@ -143,8 +141,7 @@ public class StageController : MonoBehaviour
         failDialog.SetActive(true);
         pauseDialog.SetActive(false);
         arrowButton.SetActive(false);
-        arrowSwitchButton.SetActive(false);
-        cameraButton.SetActive(false);
+        arrowSwitchButton.SetActive(false);       
     }
 
     public void loadScene(String sceneName) {
@@ -186,7 +183,6 @@ public class StageController : MonoBehaviour
         pauseDialog.SetActive(true);
         arrowButton.SetActive(false);
         arrowSwitchButton.SetActive(false);
-        cameraButton.SetActive(false);
     }
     public void GameResume()
     {
@@ -198,7 +194,6 @@ public class StageController : MonoBehaviour
         pauseDialog.SetActive(false);
         arrowButton.SetActive(true);
         arrowSwitchButton.SetActive(true);
-        cameraButton.SetActive(false);
     }
 
     private void stopBackgroundMusic()
