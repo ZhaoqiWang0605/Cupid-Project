@@ -2106,6 +2106,11 @@ PrefabInstance:
       propertyPath: stageController
       value: 
       objectReference: {fileID: 4981178354459347423}
+    - target: {fileID: 4596834801800789929, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: cupidPosAfterHit
+      value: 
+      objectReference: {fileID: 2362089988066539774}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81cd63c41100ec444a7514f39c0961f4, type: 3}
 --- !u!4 &2362089988066539774 stripped

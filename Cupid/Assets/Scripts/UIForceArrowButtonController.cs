@@ -73,14 +73,19 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void moveCupidXto(float xPos)
     {
         cupidTargetPos = new Vector2(xPos, cupidTargetPos.y);
-        moveableCameraController.setFollow(cupidAnchor);
+        //moveableCameraController.setFollow(cupidAnchor);
+    }
+
+    public void moveCupidTo(Transform pos)
+    {
+        cupidTargetPos = pos.position;
+        //moveableCameraController.setFollow(cupidAnchor);
     }
 
     public void changeArrow(int type)
     {
         currentArrowType = type;
         Destroy(currentArrow.mGameObject);
-        //currentArrow.Destroy();
         nextArrow();
     }
 
