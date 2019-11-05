@@ -34,6 +34,7 @@ public class FadeSceneEffect : MonoBehaviour
 
         if (isClickNextBtn)
         {
+            Debug.Log("-------------- click next button");
             EndScene();
         }
     }
@@ -65,6 +66,7 @@ public class FadeSceneEffect : MonoBehaviour
         FadeToBlack();
         if (rawImage.color.a > 0.99f)
         {
+            Debug.Log("-------------- load next scene");
             SceneManager.LoadScene(nextSceneName);
         }
     }
