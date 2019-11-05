@@ -16,11 +16,10 @@ public class StageController : MonoBehaviour
     public List<CoupleController> coupleControllers;
     public GameObject arrowButton;
     public GameObject arrowSwitchButton;
-    public GameObject cameraButton;
     public GameObject dialogCanvas;
     public GameObject successDialog;
     public GameObject failDialog;
-
+    public GameObject pauseDialog;
 
     private float seconds;
     private float currentScore = 0;
@@ -34,13 +33,11 @@ public class StageController : MonoBehaviour
     public int score2 = 1000;
     public int score3 = 2000;
 
-    //public Audio audio;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
         seconds = timeLimit;
         SetCountText();
         dialogCanvas.SetActive(false);
@@ -128,9 +125,9 @@ public class StageController : MonoBehaviour
         dialogCanvas.SetActive(true);
         successDialog.SetActive(true);
         failDialog.SetActive(false);
+        pauseDialog.SetActive(false);
         arrowButton.SetActive(false);
         arrowSwitchButton.SetActive(false);
-        cameraButton.SetActive(false);
 
         successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
     }
@@ -142,9 +139,9 @@ public class StageController : MonoBehaviour
         dialogCanvas.SetActive(true);
         successDialog.SetActive(false);
         failDialog.SetActive(true);
+        pauseDialog.SetActive(false);
         arrowButton.SetActive(false);
-        arrowSwitchButton.SetActive(false);
-        cameraButton.SetActive(false);
+        arrowSwitchButton.SetActive(false);       
     }
 
     public void loadScene(String sceneName) {
@@ -176,13 +173,27 @@ public class StageController : MonoBehaviour
     }
 
 
-    public static void GamePause()
+    public void GamePause()
     {
         Time.timeScale = 0;
+
+        dialogCanvas.SetActive(true);
+        successDialog.SetActive(false);
+        failDialog.SetActive(false);
+        pauseDialog.SetActive(true);
+        arrowButton.SetActive(false);
+        arrowSwitchButton.SetActive(false);
     }
-    public static void GameResume()
+    public void GameResume()
     {
         Time.timeScale = 1;
+
+        dialogCanvas.SetActive(false);
+        successDialog.SetActive(false);
+        failDialog.SetActive(false);
+        pauseDialog.SetActive(false);
+        arrowButton.SetActive(true);
+        arrowSwitchButton.SetActive(true);
     }
 
     private void stopBackgroundMusic()

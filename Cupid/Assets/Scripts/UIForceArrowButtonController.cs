@@ -27,8 +27,10 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     private Vector2 velocity = Vector3.zero;
     private MoveableCameraController moveableCameraController;
 
-    private void Awake()
+    private void Start()
     {
+        moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
+
         centerPosition = transform.position;
         nextArrow();
 
@@ -42,8 +44,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             arcPoints.Insert(i, point);
         }
 
-        cupidTargetPos = cupidAnchor.position;
-        moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
+        cupidTargetPos = cupidAnchor.position;   
     }
 
     void Update()
@@ -72,14 +73,19 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void moveCupidXto(float xPos)
     {
         cupidTargetPos = new Vector2(xPos, cupidTargetPos.y);
-        moveableCameraController.setFollow(cupidAnchor);
+        //moveableCameraController.setFollow(cupidAnchor);
+    }
+
+    public void moveCupidTo(Transform pos)
+    {
+        cupidTargetPos = pos.position;
+        //moveableCameraController.setFollow(cupidAnchor);
     }
 
     public void changeArrow(int type)
     {
         currentArrowType = type;
         Destroy(currentArrow.mGameObject);
-        //currentArrow.Destroy();
         nextArrow();
     }
 
@@ -118,6 +124,8 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         RemoveProjectileArc();
         currentArrow.launch(force);
         transform.position = centerPosition;
+        moveableCameraController.setFollow(currentArrow.mGameObject.transform);
+        moveableCameraController.followArrow();
 
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
