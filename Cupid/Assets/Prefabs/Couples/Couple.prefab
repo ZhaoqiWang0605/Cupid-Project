@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1769694441717410319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6147523490081776796}
+  m_Layer: 0
+  m_Name: CupidAfterHitPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6147523490081776796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769694441717410319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9121251322878070924}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4210496130780239893
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +85,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 2
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -9652,7 +9682,7 @@ GameObject:
   - component: {fileID: 4596834801800789929}
   - component: {fileID: 4196518049220183172}
   m_Layer: 0
-  m_Name: AnimatedCouple1
+  m_Name: Couple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9672,6 +9702,7 @@ Transform:
   - {fileID: 5186727169581890230}
   - {fileID: 7982255192958302445}
   - {fileID: 1779968362214390589}
+  - {fileID: 6147523490081776796}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9736,7 +9767,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041070104, y: 0.0588758}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9747,7 +9778,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.1518087, y: 7.5657697}
+  m_Size: {x: 5, y: 7.5}
   m_EdgeRadius: 0
 --- !u!114 &4596834801800789929
 MonoBehaviour:
@@ -9761,9 +9792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3a215e0c730384393bb3470f88c908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartEffect: {fileID: 5069433932697757695}
-  hitEffect: {fileID: 6566531423730119031}
-  stageController: {fileID: 0}
   moveCupidAfterHit: 1
 --- !u!95 &4196518049220183172
 Animator:
