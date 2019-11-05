@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FadeSceneEffect : MonoBehaviour
 {
-    public float fadeSpeed = 4.0f;
+    public float fadeSpeed = 5.0f;
     public GameObject mask;
 
     private RawImage rawImage;
@@ -34,7 +34,6 @@ public class FadeSceneEffect : MonoBehaviour
 
         if (isClickNextBtn)
         {
-            Debug.Log("-------------- click next button");
             EndScene();
         }
     }
@@ -62,11 +61,9 @@ public class FadeSceneEffect : MonoBehaviour
 
     void EndScene()
     {
-        mask.SetActive(true);
         FadeToBlack();
         if (rawImage.color.a > 0.99f)
         {
-            Debug.Log("-------------- load next scene");
             SceneManager.LoadScene(nextSceneName);
         }
     }
@@ -74,6 +71,13 @@ public class FadeSceneEffect : MonoBehaviour
     public void ClickNextBtn(string sceneName)
     {
         nextSceneName = sceneName;
+        mask.SetActive(true);
         isClickNextBtn = true;
+        sceneStarting = false;
+    }
+
+    public void ResumeTime()
+    {
+        Time.timeScale = 1;
     }
 }
