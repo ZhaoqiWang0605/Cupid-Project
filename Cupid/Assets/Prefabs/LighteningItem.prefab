@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 487200901810835177}
   - component: {fileID: 4250863919624686064}
   - component: {fileID: 300135903468333997}
+  - component: {fileID: 2275562363629057097}
   m_Layer: 0
   m_Name: LighteningItem
   m_TagString: Unbouncable
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42e78cb5610f942049cb35f0210b5543, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,3 +133,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee7cbc7e787c4ff09ea0fafbea3b2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2275562363629057097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001249672947331009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109bef6740a6b4cca92e50c461dd536d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  minBrightness: 0.46
+  maxBrightness: 1
+  rate: 0.7
+  _autoStart: 1
