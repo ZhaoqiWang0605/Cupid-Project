@@ -759,7 +759,7 @@ MonoBehaviour:
   arrowPrefabs:
   - {fileID: 6082937056054110598, guid: 8eb90c4ae8eeab74f890b36aed543c4b, type: 3}
   - {fileID: 4014654179992136881, guid: 057585fb846b85d4380cd3846fbd5a6e, type: 3}
-  - {fileID: 4014654179992136881, guid: 057585fb846b85d4380cd3846fbd5a6e, type: 3}
+  - {fileID: 6082937056054110598, guid: 7cf9d11b1ab5a493f9cf9a2b84274f59, type: 3}
   projectArcPoint: {fileID: 9040836586303556216, guid: 12208d8cac84649d7b4790c654605a93,
     type: 3}
   projectArcPointCount: 30
