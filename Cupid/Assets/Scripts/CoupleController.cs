@@ -18,14 +18,15 @@ public class CoupleController : MonoBehaviour
 
     void Start()
     {
-        cupidPosAfterHit = GameObject.Find("CupidAfterHitPos").transform;
+        
+        cupidPosAfterHit = transform.GetChild(3);
         stageController = GameObject.Find("StageController").GetComponent<StageController>();
         uIForceArrowButtonController = GameObject.Find("ArrowButton").GetComponent<UIForceArrowButtonController>();
         moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
         animator = GetComponent<Animator>();
-        heartEffect = GameObject.Find("HeartEffect").GetComponent<ParticleSystem>();
-        hitEffect = GameObject.Find("HitEffect").GetComponent<ParticleSystem>();
-        arrowHitCoupleAudio = GameObject.Find("ArrowHitCoupleAudio").GetComponent<Audio>();
+        heartEffect = transform.GetChild(0).GetComponent<ParticleSystem>();
+        hitEffect = transform.GetChild(1).GetComponent<ParticleSystem>();
+        arrowHitCoupleAudio = transform.GetChild(2).GetComponent<Audio>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

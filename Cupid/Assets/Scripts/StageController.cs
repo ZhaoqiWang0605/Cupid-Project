@@ -4,22 +4,24 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Cinemachine;
 
 public class StageController : MonoBehaviour
 {
-    public Text scoreText;
-    public Text timeText;
-
     public float timeLimit;
     public float clearScore;
-    public List<CoupleController> coupleControllers;
-    public GameObject arrowButton;
-    public GameObject arrowSwitchButton;
-    public GameObject dialogCanvas;
-    public GameObject successDialog;
-    public GameObject failDialog;
-    public GameObject pauseDialog;
+
+    public List<CoupleController> coupleControllers = new List<CoupleController>();
+    private GameObject arrowButtonPanel;
+    private GameObject arrowSwitchPanel;
+
+    private Text stageText;
+    private Text scoreText;
+    private Text timeText;
+
+    private GameObject dialogCanvas;
+    private GameObject successDialog;
+    private GameObject failDialog;
+    private GameObject pauseDialog;
 
     private float seconds;
     private float currentScore = 0;
@@ -33,20 +35,30 @@ public class StageController : MonoBehaviour
     public int score2 = 1000;
     public int score3 = 2000;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
+        // Get references
+        GameObject couples = GameObject.Find("Couples");
+        for (int i = 0; i < couples.transform.childCount; i++)
+        {
+            coupleControllers.Add(couples.transform.GetChild(i).GetComponent<CoupleController>());
+        }
+        arrowButtonPanel = GameObject.Find("ArrowButtonPanel");
+        arrowSwitchPanel = GameObject.Find("ArrowSwitchPanel");
+
+        stageText = GameObject.Find("StageText").GetComponent<Text>(); 
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        timeText = GameObject.Find("TimeText").GetComponent<Text>();
+
+        dialogCanvas = GameObject.Find("DialogCanvas");
+        successDialog = GameObject.Find("SuccessDialog");
+        failDialog = GameObject.Find("FailDialog");
+        pauseDialog = GameObject.Find("PauseDialog");
+
         seconds = timeLimit;
-        SetCountText();
         dialogCanvas.SetActive(false);
-        successDialog.SetActive(false);
-        failDialog.SetActive(false);
-        //Debug.Log(PlayerPrefs.GetString("currentStage") + " start");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!gameEnded)
@@ -67,13 +79,11 @@ public class StageController : MonoBehaviour
         String minute = ((int)seconds / 60).ToString().PadLeft(2, '0');
         String second = ((int)seconds % 60).ToString().PadLeft(2, '0');
         timeText.text = minute + ":" + second;
-        //Debug.Log(PlayerPrefs.GetString("currentStage") + "time set");
     }
 
     void CheckGameEnded()
     {
         bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.isInLove());
-        //Debug.Log(allMatched);
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;
@@ -126,8 +136,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(true);
         failDialog.SetActive(false);
         pauseDialog.SetActive(false);
-        arrowButton.SetActive(false);
-        arrowSwitchButton.SetActive(false);
+        arrowButtonPanel.SetActive(false);
+        arrowSwitchPanel.SetActive(false);
 
         successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
     }
@@ -140,8 +150,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(true);
         pauseDialog.SetActive(false);
-        arrowButton.SetActive(false);
-        arrowSwitchButton.SetActive(false);       
+        arrowButtonPanel.SetActive(false);
+        arrowSwitchPanel.SetActive(false);       
     }
 
     public void loadScene(String sceneName) {
@@ -181,8 +191,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(false);
         pauseDialog.SetActive(true);
-        arrowButton.SetActive(false);
-        arrowSwitchButton.SetActive(false);
+        arrowButtonPanel.SetActive(false);
+        arrowSwitchPanel.SetActive(false);
     }
     public void GameResume()
     {
@@ -192,8 +202,8 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(false);
         pauseDialog.SetActive(false);
-        arrowButton.SetActive(true);
-        arrowSwitchButton.SetActive(true);
+        arrowButtonPanel.SetActive(true);
+        arrowSwitchPanel.SetActive(true);
     }
 
     private void stopBackgroundMusic()
