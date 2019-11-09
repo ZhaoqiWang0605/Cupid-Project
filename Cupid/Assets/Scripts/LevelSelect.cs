@@ -54,8 +54,7 @@ public class LevelSelect : MonoBehaviour
             Debug.Log(levelName);
             //保存当前关卡名字在currentStage中
             PlayerPrefs.SetString("currentStage", levelName);
-            SceneManager.LoadScene("StageScene");
-            //SceneManager.LoadScene("MainScene");
+            //SceneManager.LoadScene("StageScene");
         }
     }
 
