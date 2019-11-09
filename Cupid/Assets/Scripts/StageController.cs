@@ -164,7 +164,7 @@ public class StageController : MonoBehaviour
         int nextStageNum = int.Parse(currentStageName.Replace("level", "")) + 1;
         string nextStageName = "level" + nextStageNum;
         PlayerPrefs.SetString("currentStage", nextStageName);
-        SceneManager.LoadScene("StageScene");
+        //SceneManager.LoadScene("StageScene");
     }
 
     //存储每一关星星的数量
