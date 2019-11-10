@@ -109,7 +109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3822652709009544770}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3873584363784443395
 SpriteRenderer:
@@ -247,11 +247,51 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.61
       objectReference: {fileID: 0}
+    - target: {fileID: 9121251322878070915, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121251322878070915, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121251322878070915, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121251322878070915, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.61
+      objectReference: {fileID: 0}
     - target: {fileID: 4196518049220183172, guid: 81cd63c41100ec444a7514f39c0961f4,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 71a5dac727564b945bb80d57f4f26293, type: 2}
+    - target: {fileID: 5186727169581890230, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147523490081776796, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982255192958302445, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779968362214390589, guid: 81cd63c41100ec444a7514f39c0961f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81cd63c41100ec444a7514f39c0961f4, type: 3}
 --- !u!4 &3822652709009544770 stripped

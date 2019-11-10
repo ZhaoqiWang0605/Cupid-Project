@@ -1,0 +1,413 @@
+fileFormatVersion: 2
+guid: 89288698c86e7412a86ed26f01b091b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5323689132734611236
+    second: Man_up
+  - first:
+      213: 2249765782686518249
+    second: Women_fighting_1
+  - first:
+      213: 2541879116564576904
+    second: Man_down
+  - first:
+      213: 5745533656403912257
+    second: Woman_reconcile_1
+  - first:
+      213: -1866057171523724590
+    second: Couple2_Inlove
+  - first:
+      213: -3084445015708621103
+    second: Woman_flighting_2
+  - first:
+      213: 1543227281341262367
+    second: Woman_reconcile_2
+  - first:
+      213: 1620670848309351781
+    second: Woman_flighting_3
+  - first:
+      213: 7456219018005412507
+    second: Woman_reconcile_3
+  - first:
+      213: 7880256160878613860
+    second: Woman_flighting_4
+  - first:
+      213: 1285852285829211785
+    second: Woman_reconcile_4
+  - first:
+      213: -7878386091661708340
+    second: Woman_flighting_5
+  - first:
+      213: -2801223694594717100
+    second: Woman_reconcile_5
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Man_up
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 3307.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8176554bbb44ca9af8bd3320a8a26b
+      internalID: 5323689132734611236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Women_fighting_1
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 3307.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1a7397731c54c5caede625923ca8fa
+      internalID: 2249765782686518249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Man_down
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 3307.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbde9b2d987a7423d99833437332a969
+      internalID: 2541879116564576904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_reconcile_1
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 3307.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94c3ffe7a0234a88875b870ac321f2d
+      internalID: 5745533656403912257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Couple2_Inlove
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 3307.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101ccd61749cd44c2a9d07f716e20536
+      internalID: -1866057171523724590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_flighting_2
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 2481.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf47e72a8c50b4641924d49b8a3cce93
+      internalID: -3084445015708621103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_reconcile_2
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 2481.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab069fb0eda8a4d0295efb97e4c84402
+      internalID: 1543227281341262367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_flighting_3
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1655.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430faf9ac81e34e01ac67b41cb55ba31
+      internalID: 1620670848309351781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_reconcile_3
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 1655.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5643844c6f64c9bb46de0199d5206c
+      internalID: 7456219018005412507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_flighting_4
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 829.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd5a268b66b14a9a9910cb92271093b
+      internalID: 7880256160878613860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_reconcile_4
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 829.2
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866bc849220c0404bb7ebe78ee7c5da5
+      internalID: 1285852285829211785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_flighting_5
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 3.2000122
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783666a198a6d419abffb057f4c1d717
+      internalID: -7878386091661708340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_reconcile_5
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 3.2000122
+        width: 590.5
+        height: 826.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f551d5f17f7a045c5897f504d349bdb1
+      internalID: -2801223694594717100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b39b5c6172d8f4db39af1dac0a7ed78c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
