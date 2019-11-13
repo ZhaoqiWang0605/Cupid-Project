@@ -44,7 +44,12 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             arcPoints.Insert(i, point);
         }
 
-        cupidTargetPos = cupidAnchor.position;   
+        cupidTargetPos = cupidAnchor.position;
+    }
+
+    void OnEnable()
+    {
+        cupidTargetPos = cupidAnchor.position;
     }
 
     void Update()
@@ -52,7 +57,6 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         if (Vector3.Distance(cupidAnchor.position, currentArrow.mGameObject.transform.position) > 20.0f)
         {
             Destroy(currentArrow.mGameObject);
-            //currentArrow.Destroy();
             nextArrow();
         }
         cupidAnchor.position = Vector2.SmoothDamp(cupidAnchor.position, cupidTargetPos, ref velocity, smoothTime);
@@ -61,10 +65,6 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void nextArrow()
     {
         Debug.Log("UIForceArrowButtonController.nextArrow()");
-        /*
-        currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor);
-        currentArrow.GetComponent<ILaunchable>().uIForceArrowButtonController = this;
-        */
         currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor).GetComponent<ILaunchable>();
         currentArrow.mGameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
         currentArrow.uIForceArrowButtonController = this;
@@ -106,7 +106,6 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //draw projectile arc
         Vector3 force = GetForceFromTwoPoint(transform.position, centerPosition);
         float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
-        //transform.eulerAngles = new Vector3(0, 0, angle);
         setTrajectoryPoints(currentArrow.getArrowPosition(), force / currentArrow.getArrowMass());
         
 

@@ -48,6 +48,7 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
             launched = true;
             rg.bodyType = RigidbodyType2D.Dynamic;
             rg.AddForce(force, ForceMode2D.Impulse);
+            transform.parent = null;
         }
     }
 
