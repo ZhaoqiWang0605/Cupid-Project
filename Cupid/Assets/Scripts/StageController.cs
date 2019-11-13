@@ -39,10 +39,7 @@ public class StageController : MonoBehaviour
     {
         // Get references
         GameObject couples = GameObject.Find("Couples");
-        for (int i = 0; i < couples.transform.childCount; i++)
-        {
-            coupleControllers.Add(couples.transform.GetChild(i).GetComponent<CoupleController>());
-        }
+        coupleControllers = new List<CoupleController>(FindObjectsOfType<CoupleController>());
         arrowButtonPanel = GameObject.Find("ArrowButtonPanel");
         arrowSwitchPanel = GameObject.Find("ArrowSwitchPanel");
 
