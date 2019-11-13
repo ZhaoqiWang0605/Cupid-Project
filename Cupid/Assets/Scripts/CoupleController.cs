@@ -63,7 +63,7 @@ public class CoupleController : MonoBehaviour
 
     public void EnableFreeze()
     {
-        animator.SetBool("freeze", true);
+        animator.SetBool("isFreezed", true);
     }
 
     public void DisableFreeze()
