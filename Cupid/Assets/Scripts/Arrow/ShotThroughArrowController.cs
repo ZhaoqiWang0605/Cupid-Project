@@ -7,11 +7,13 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
     public UIForceArrowButtonController uIForceArrowButtonController { get; set; }
     public GameObject mGameObject { get; set; }
     public GameObject dummyColliderPrefab;
+    public GameObject aimingLinePrefab;
 
     private Vector2 originalPos;
     private Rigidbody2D rg;
     private bool launched = false;
     private HashSet<int> collidedID;
+    private AimingLine aimingLine;
 
     void Awake()
     {
@@ -19,6 +21,7 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
         originalPos = transform.position;
         rg = GetComponent<Rigidbody2D>();
         collidedID = new HashSet<int>();
+        aimingLine = Instantiate(aimingLinePrefab, transform).GetComponent<AimingLine>();
     }
 
     void Update()
@@ -71,6 +74,16 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
     public Vector3 getArrowPosition()
     {
         return rg.transform.position;
+    }
+
+    public void setTrajectoryPoints(Vector3 pStartPosition, Vector3 pVelocity)
+    {
+        aimingLine.setTrajectoryPoints(pStartPosition, pVelocity);
+    }
+
+    public void RemoveProjectileArc()
+    {
+        aimingLine.RemoveProjectileArc();
     }
 
     public void Destroy()

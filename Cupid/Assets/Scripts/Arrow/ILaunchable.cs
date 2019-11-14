@@ -9,5 +9,7 @@ public interface ILaunchable
     void launch(Vector2 force);
     float getArrowMass();
     Vector3 getArrowPosition();
+    void setTrajectoryPoints(Vector3 pStartPosition, Vector3 pVelocity);
+    void RemoveProjectileArc();
     void Destroy();
 }

@@ -6,11 +6,13 @@ public class ArrowController : MonoBehaviour, ILaunchable
 {
     public UIForceArrowButtonController uIForceArrowButtonController { get; set; }
     public GameObject mGameObject { get; set; }
+    public GameObject aimingLinePrefab;
 
     private Vector2 originalPos;
     private Rigidbody2D rg;
     private bool launched = false;
     private bool collided = false;
+    private AimingLine aimingLine;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +20,7 @@ public class ArrowController : MonoBehaviour, ILaunchable
         mGameObject = gameObject;
         originalPos = transform.position;
         rg = GetComponent<Rigidbody2D>();
+        aimingLine = Instantiate(aimingLinePrefab, transform).GetComponent<AimingLine>();
     }
 
     // Update is called once per frame
@@ -66,6 +69,16 @@ public class ArrowController : MonoBehaviour, ILaunchable
     public Vector3 getArrowPosition()
     {
         return rg.transform.position;
+    }
+
+    public void setTrajectoryPoints(Vector3 pStartPosition, Vector3 pVelocity)
+    {
+        aimingLine.setTrajectoryPoints(pStartPosition, pVelocity);
+    }
+
+    public void RemoveProjectileArc()
+    {
+        aimingLine.RemoveProjectileArc();
     }
 
     public void Destroy()
