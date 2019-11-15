@@ -85,7 +85,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //draw projectile arc
         Vector3 force = GetForceFromTwoPoint(transform.position, centerPosition);
         float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
-        currentArrow.setTrajectoryPoints(currentArrow.getArrowPosition(), force / currentArrow.getArrowMass());
+        currentArrow.setTrajectoryPoints(force);
 
 
         // Rotate cupid and arrowButtonPointer as we rotate force arrow button

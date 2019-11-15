@@ -66,19 +66,9 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
         }
     }
 
-    public float getArrowMass()
+    public void setTrajectoryPoints(Vector3 force)
     {
-        return rg.mass;
-    }
-
-    public Vector3 getArrowPosition()
-    {
-        return rg.transform.position;
-    }
-
-    public void setTrajectoryPoints(Vector3 pStartPosition, Vector3 pVelocity)
-    {
-        aimingLine.setTrajectoryPoints(pStartPosition, pVelocity);
+        aimingLine.setTrajectoryPoints(transform.position, force / rg.mass);
     }
 
     public void RemoveProjectileArc()
