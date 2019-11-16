@@ -32,24 +32,24 @@ public class BounceArrowController : MonoBehaviour, ILaunchable
     {
         if (launched && !collided)
         {
-            rotate();
+            Rotate();
         }
 
         if (Vector2.Distance(originalPos, transform.position) > 50.0f)
         {
-            uIForceArrowButtonController.nextArrow();
+            uIForceArrowButtonController.NextArrow();
             Destroy(gameObject);
         }
     }
 
-    void rotate()
+    void Rotate()
     {
         
         float rotationZ = Mathf.Atan2(rg.velocity.y, rg.velocity.x) * Mathf.Rad2Deg;
         rg.rotation = rotationZ;
     }
 
-    public void launch(Vector2 force)
+    public void Launch(Vector2 force)
     {
         Debug.Log("launch");
         launched = true;
@@ -64,19 +64,19 @@ public class BounceArrowController : MonoBehaviour, ILaunchable
         if (collision.gameObject.tag == "Unbouncable" || collisionCnt >= maxBounceNum)
         {
             rg.bodyType = RigidbodyType2D.Static;
-            uIForceArrowButtonController.nextArrow();
+            uIForceArrowButtonController.NextArrow();
             Destroy(gameObject);
             Debug.Log("bounce arrow destory");
         }
         else
         {
             collisionCnt++;
-            rotate();
+            Rotate();
             Debug.Log("bounce arrow bounce");
         }
     }
 
-    public void setTrajectoryPoints(Vector3 force)
+    public void SetTrajectoryPoints(Vector3 force)
     {
         aimingLine.setTrajectoryPoints(transform.position, force / rg.mass);
     }

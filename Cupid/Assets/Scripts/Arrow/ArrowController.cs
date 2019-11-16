@@ -28,23 +28,23 @@ public class ArrowController : MonoBehaviour, ILaunchable
     {
         if (launched && !collided)
         {
-            rotate();
+            Rotate();
         }
 
         if (Vector2.Distance(originalPos, transform.position) > 50.0f)
         {
-            uIForceArrowButtonController.nextArrow();
+            uIForceArrowButtonController.NextArrow();
             Destroy(gameObject);
         }
     }
 
-    void rotate()
+    void Rotate()
     {
         float rotationZ = Mathf.Atan2(rg.velocity.y, rg.velocity.x) * Mathf.Rad2Deg;
         rg.rotation = rotationZ;
     }
 
-    public void launch(Vector2 force)
+    public void Launch(Vector2 force)
     {
         Debug.Log("launch");
         if (!launched) {
@@ -57,11 +57,11 @@ public class ArrowController : MonoBehaviour, ILaunchable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rg.bodyType = RigidbodyType2D.Static;
-        uIForceArrowButtonController.nextArrow();
+        uIForceArrowButtonController.NextArrow();
         Destroy(gameObject);
     }
 
-    public void setTrajectoryPoints(Vector3 force)
+    public void SetTrajectoryPoints(Vector3 force)
     {
         aimingLine.setTrajectoryPoints(transform.position, force / rg.mass);
     }

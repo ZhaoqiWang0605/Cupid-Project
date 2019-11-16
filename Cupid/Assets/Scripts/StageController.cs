@@ -80,7 +80,7 @@ public class StageController : MonoBehaviour
 
     void CheckGameEnded()
     {
-        bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.isInLove());
+        bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.IsInLove());
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;

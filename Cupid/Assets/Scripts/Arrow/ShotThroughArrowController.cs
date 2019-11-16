@@ -28,23 +28,23 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
     {
         if (launched)
         {
-            rotate();
+            Rotate();
         }
 
         if (Vector2.Distance(originalPos, transform.position) > 50.0f)
         {
-            uIForceArrowButtonController.nextArrow();
+            uIForceArrowButtonController.NextArrow();
             Destroy(gameObject);
         }
     }
 
-    void rotate()
+    void Rotate()
     {
         float rotationZ = Mathf.Atan2(rg.velocity.y, rg.velocity.x) * Mathf.Rad2Deg;
         rg.rotation = rotationZ;
     }
 
-    public void launch(Vector2 force)
+    public void Launch(Vector2 force)
     {
         if (!launched)
         {
@@ -66,7 +66,7 @@ public class ShotThroughArrowController : MonoBehaviour, ILaunchable
         }
     }
 
-    public void setTrajectoryPoints(Vector3 force)
+    public void SetTrajectoryPoints(Vector3 force)
     {
         aimingLine.setTrajectoryPoints(transform.position, force / rg.mass);
     }

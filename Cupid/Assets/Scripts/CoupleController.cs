@@ -4,6 +4,7 @@ public class CoupleController : MonoBehaviour
 {
     private bool inLove = false;
 
+    public bool moveCameraAfterHit = false;
     public bool moveCupidAfterHit = true;
     private Transform cupidPosAfterHit;
 
@@ -31,10 +32,10 @@ public class CoupleController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        setInLove();
+        SetInLove();
     }
 
-    public void setInLove()
+    public void SetInLove()
     {
         if (!inLove)
         {
@@ -49,14 +50,17 @@ public class CoupleController : MonoBehaviour
 
             if (moveCupidAfterHit)
             {
-                uIForceArrowButtonController.moveCupidTo(cupidPosAfterHit);
+                uIForceArrowButtonController.MoveCupidTo(cupidPosAfterHit);
             }
-            moveableCameraController.setFollow(transform);
+            if (moveCameraAfterHit)
+            {
+                moveableCameraController.SetFollowTarget(transform);
+                moveableCameraController.SwitchToFollow();
+            }
         }
-
     }
 
-    public bool isInLove()
+    public bool IsInLove()
     {
         return inLove;
     }

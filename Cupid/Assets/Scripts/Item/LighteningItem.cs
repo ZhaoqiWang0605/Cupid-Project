@@ -21,9 +21,9 @@ public class LighteningItem : MonoBehaviour
     {
         foreach(CoupleController cp in stageController.coupleControllers)
         {
-            if (!cp.isInLove())
+            if (!cp.IsInLove())
             {
-                cp.setInLove();
+                cp.SetInLove();
                 break;
             }
         }

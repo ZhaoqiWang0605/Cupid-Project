@@ -119,7 +119,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 970951234615429420}
-        m_MethodName: changeArrow
+        m_MethodName: ChangeArrow
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -769,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22755c9972159f04c853f42204ec8bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveCameraAfterLaunch: 0
   cupidAnchor: {fileID: 0}
   arrowButtonPointer: {fileID: 970951234445453188}
   maxDis: 50
@@ -776,9 +777,6 @@ MonoBehaviour:
   - {fileID: 6082937056054110598, guid: 8eb90c4ae8eeab74f890b36aed543c4b, type: 3}
   - {fileID: 4014654179992136881, guid: 057585fb846b85d4380cd3846fbd5a6e, type: 3}
   - {fileID: 6082937056054110598, guid: 7cf9d11b1ab5a493f9cf9a2b84274f59, type: 3}
-  projectArcPoint: {fileID: 9040836586303556216, guid: 12208d8cac84649d7b4790c654605a93,
-    type: 3}
-  projectArcPointCount: 30
   audio: {fileID: 9076277341093620787}
   cupidTargetPos: {x: 0, y: 0}
   smoothTime: 0.3
@@ -1176,7 +1174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035, y: 0.000030518}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0.000030517578}
   m_SizeDelta: {x: -0.00012207031, y: 0.000061035156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3591142719570648691
@@ -1481,7 +1479,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 970951234615429420}
-        m_MethodName: changeArrow
+        m_MethodName: ChangeArrow
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1961,7 +1959,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 970951234615429420}
-        m_MethodName: changeArrow
+        m_MethodName: ChangeArrow
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

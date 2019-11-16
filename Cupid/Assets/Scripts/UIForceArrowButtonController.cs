@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public bool moveCameraAfterLaunch = false;
     public Transform cupidAnchor;
     public RectTransform arrowButtonPointer;
     public float maxDis;
@@ -28,7 +29,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
 
         centerPosition = transform.position;
-        nextArrow();
+        NextArrow();
 
         cupidTargetPos = cupidAnchor.position;
     }
@@ -43,12 +44,12 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         if (Vector3.Distance(cupidAnchor.position, currentArrow.mGameObject.transform.position) > 20.0f)
         {
             Destroy(currentArrow.mGameObject);
-            nextArrow();
+            NextArrow();
         }
         cupidAnchor.position = Vector2.SmoothDamp(cupidAnchor.position, cupidTargetPos, ref velocity, smoothTime);
     }
 
-    public void nextArrow()
+    public void NextArrow()
     {
         Debug.Log("UIForceArrowButtonController.nextArrow()");
         currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor).GetComponent<ILaunchable>();
@@ -56,16 +57,16 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         currentArrow.uIForceArrowButtonController = this;
     }
 
-    public void moveCupidTo(Transform pos)
+    public void MoveCupidTo(Transform pos)
     {
         cupidTargetPos = pos.position;
     }
 
-    public void changeArrow(int type)
+    public void ChangeArrow(int type)
     {
         currentArrowType = type;
         Destroy(currentArrow.mGameObject);
-        nextArrow();
+        NextArrow();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -85,7 +86,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //draw projectile arc
         Vector3 force = GetForceFromTwoPoint(transform.position, centerPosition);
         float angle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
-        currentArrow.setTrajectoryPoints(force);
+        currentArrow.SetTrajectoryPoints(force);
 
 
         // Rotate cupid and arrowButtonPointer as we rotate force arrow button
@@ -100,10 +101,14 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
         //Debug.Log("OnEndDrag()");
         Vector2 force = GetForceFromTwoPoint(transform.position, centerPosition);
         currentArrow.RemoveProjectileArc();
-        currentArrow.launch(force);
+        currentArrow.Launch(force);
         transform.position = centerPosition;
-        moveableCameraController.setFollow(currentArrow.mGameObject.transform);
-        moveableCameraController.followArrow();
+        if (moveCameraAfterLaunch)
+        {
+            moveableCameraController.SetFollowTarget(currentArrow.mGameObject.transform);
+            moveableCameraController.SwitchToFollow();
+        }
+        
 
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);
