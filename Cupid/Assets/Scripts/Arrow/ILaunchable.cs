@@ -6,8 +6,8 @@ public interface ILaunchable
 {
     UIForceArrowButtonController uIForceArrowButtonController {get; set; }
     GameObject mGameObject { get; }
-    void launch(Vector2 force);
-    float getArrowMass();
-    Vector3 getArrowPosition();
+    void Launch(Vector2 force);
+    void SetTrajectoryPoints(Vector3 force);
+    void RemoveProjectileArc();
     void Destroy();
 }

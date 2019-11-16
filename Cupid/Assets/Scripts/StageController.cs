@@ -22,6 +22,7 @@ public class StageController : MonoBehaviour
     private GameObject successDialog;
     private GameObject failDialog;
     private GameObject pauseDialog;
+    private GameObject clearDialog;
 
     private float seconds;
     private float currentScore = 0;
@@ -51,6 +52,7 @@ public class StageController : MonoBehaviour
         successDialog = GameObject.Find("SuccessDialog");
         failDialog = GameObject.Find("FailDialog");
         pauseDialog = GameObject.Find("PauseDialog");
+        clearDialog = GameObject.Find("ClearDialog");
 
         seconds = timeLimit;
         dialogCanvas.SetActive(false);
@@ -80,7 +82,7 @@ public class StageController : MonoBehaviour
 
     void CheckGameEnded()
     {
-        bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.isInLove());
+        bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.IsInLove());
         if (allMatched || seconds <= 0)
         {
             gameEnded = true;
@@ -108,7 +110,16 @@ public class StageController : MonoBehaviour
         {
             starsNum = 3;
         }
-        StartCoroutine(Sleep());
+
+        int currentStage = int.Parse(PlayerPrefs.GetString("currentStage").Replace("level", ""));
+        if (Resources.Load("level" + (currentStage + 1)) == null)
+        {
+            GameEndClear(starsNum);
+        }
+        else
+        {
+            StartCoroutine(Sleep());
+        }
     }
 
     IEnumerator Sleep()
@@ -133,6 +144,7 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(true);
         failDialog.SetActive(false);
         pauseDialog.SetActive(false);
+        clearDialog.SetActive(false);
         arrowButtonPanel.SetActive(false);
         arrowSwitchPanel.SetActive(false);
 
@@ -147,8 +159,26 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(true);
         pauseDialog.SetActive(false);
+        clearDialog.SetActive(false);
         arrowButtonPanel.SetActive(false);
         arrowSwitchPanel.SetActive(false);       
+    }
+
+    void GameEndClear(int stars)
+    {
+        SaveData();
+        print(stars);
+        //audio.StopMusic();
+        stopBackgroundMusic();
+        dialogCanvas.SetActive(true);
+        successDialog.SetActive(false);
+        failDialog.SetActive(false);
+        pauseDialog.SetActive(false);
+        clearDialog.SetActive(true);
+        arrowButtonPanel.SetActive(false);
+        arrowSwitchPanel.SetActive(false);
+
+        successDialog.GetComponent<SuccessDialog>().ShowStar(stars);
     }
 
     public void loadScene(String sceneName) {
@@ -188,6 +218,7 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(false);
         pauseDialog.SetActive(true);
+        clearDialog.SetActive(false);
         arrowButtonPanel.SetActive(false);
         arrowSwitchPanel.SetActive(false);
     }
@@ -199,6 +230,7 @@ public class StageController : MonoBehaviour
         successDialog.SetActive(false);
         failDialog.SetActive(false);
         pauseDialog.SetActive(false);
+        clearDialog.SetActive(false);
         arrowButtonPanel.SetActive(true);
         arrowSwitchPanel.SetActive(true);
     }

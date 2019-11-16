@@ -56,12 +56,7 @@ public class MoveableCameraController : MonoBehaviour
         }
 
         // Calculate screen size in unity game world unit and camera zooming bound.
-        Vector3 p1 = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        Vector3 p2 = Camera.main.ScreenToWorldPoint(Vector3.right);
-        float unit = Vector3.Distance(p1, p2);
-        float screenWidthInWorld = Screen.width * unit;
-        float screenHeightInWorld = Screen.height * unit;
-        zoomOutMax = Mathf.Min((rightBound - leftBound) / Screen.width * Screen.height, screenHeightInWorld) / 2;
+        zoomOutMax = Mathf.Min((rightBound - leftBound) / Screen.width * Screen.height, (upperBound - lowerBound)) / 2;
 
         // Move camera into confined space if it is not inside
         ClampCmaera();
@@ -77,19 +72,19 @@ public class MoveableCameraController : MonoBehaviour
         {
             touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startedCurrentDragOnUI = IsPointerOverGameObject();
-            freeLook();
+            SwitchToFreeLook();
         }
         if (!startedCurrentDragOnUI)
         {
             if (Input.touchCount == 2)
             {
-                zoomByTouch();
+                ZoomByTouch();
             }
             else if (Input.GetMouseButton(0))
             {
-                moveCameraByTouch();
+                MoveCameraByTouch();
             }
-            zoom(Input.GetAxis("Mouse ScrollWheel"));
+            Zoom(Input.GetAxis("Mouse ScrollWheel"));
         }
 
         if (camStateMachine.GetInteger("CamMode") == 1)
@@ -99,7 +94,7 @@ public class MoveableCameraController : MonoBehaviour
         ClampCmaera();
     }
 
-    private void moveCameraByTouch()
+    private void MoveCameraByTouch()
     {
         // Calculate screen size in unity game world unit
         float screenHeightInWorld = freeLookCamera.m_Lens.OrthographicSize * 2;
@@ -124,7 +119,7 @@ public class MoveableCameraController : MonoBehaviour
         freeLookCamera.transform.position += direction;
     }
 
-    private void zoomByTouch()
+    private void ZoomByTouch()
     {
         Touch touchZero = Input.GetTouch(0);
         Touch touchOne = Input.GetTouch(1);
@@ -137,11 +132,13 @@ public class MoveableCameraController : MonoBehaviour
 
         float difference = currentMagnitude - prevMagnitude;
 
-        zoom(difference * 0.01f);
+        Zoom(difference * 0.01f);
     }
 
-    private void zoom(float increment)
+    private void Zoom(float increment)
     {
+        // Check if zoom would be able to fit inside confiner
+        zoomOutMax = Mathf.Min((rightBound - leftBound) / Screen.width * Screen.height, (upperBound - lowerBound)) / 2;
         freeLookCamera.m_Lens.OrthographicSize = Mathf.Clamp(freeLookCamera.m_Lens.OrthographicSize - increment, zoomOutMin, zoomOutMax);
     }
 
@@ -178,17 +175,17 @@ public class MoveableCameraController : MonoBehaviour
         return false;
     }
 
-    public void setFollow(Transform follow)
+    public void SetFollowTarget(Transform follow)
     {
         arrowFollowCamera.m_Follow = follow;
     }
 
-    public void followArrow()
+    public void SwitchToFollow()
     {
         camStateMachine.SetInteger("CamMode", 1);
     }
 
-    public void freeLook()
+    public void SwitchToFreeLook()
     {
         camStateMachine.SetInteger("CamMode", 0);
     }

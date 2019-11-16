@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89996d40467454041828b4c914efce23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimingLinePrefab: {fileID: 2562078435455912512, guid: 36d759792fb182348a1c575b970ed0ff,
+    type: 3}
   maxBounceNum: 4
 --- !u!58 &1957197859445478499
 CircleCollider2D:

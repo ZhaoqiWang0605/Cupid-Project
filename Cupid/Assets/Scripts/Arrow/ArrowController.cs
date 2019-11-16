@@ -6,11 +6,13 @@ public class ArrowController : MonoBehaviour, ILaunchable
 {
     public UIForceArrowButtonController uIForceArrowButtonController { get; set; }
     public GameObject mGameObject { get; set; }
+    public GameObject aimingLinePrefab;
 
     private Vector2 originalPos;
     private Rigidbody2D rg;
     private bool launched = false;
     private bool collided = false;
+    private AimingLine aimingLine;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +20,7 @@ public class ArrowController : MonoBehaviour, ILaunchable
         mGameObject = gameObject;
         originalPos = transform.position;
         rg = GetComponent<Rigidbody2D>();
+        aimingLine = Instantiate(aimingLinePrefab, transform).GetComponent<AimingLine>();
     }
 
     // Update is called once per frame
@@ -25,23 +28,23 @@ public class ArrowController : MonoBehaviour, ILaunchable
     {
         if (launched && !collided)
         {
-            rotate();
+            Rotate();
         }
 
         if (Vector2.Distance(originalPos, transform.position) > 50.0f)
         {
-            uIForceArrowButtonController.nextArrow();
+            uIForceArrowButtonController.NextArrow();
             Destroy(gameObject);
         }
     }
 
-    void rotate()
+    void Rotate()
     {
         float rotationZ = Mathf.Atan2(rg.velocity.y, rg.velocity.x) * Mathf.Rad2Deg;
         rg.rotation = rotationZ;
     }
 
-    public void launch(Vector2 force)
+    public void Launch(Vector2 force)
     {
         Debug.Log("launch");
         if (!launched) {
@@ -54,18 +57,18 @@ public class ArrowController : MonoBehaviour, ILaunchable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rg.bodyType = RigidbodyType2D.Static;
-        uIForceArrowButtonController.nextArrow();
+        uIForceArrowButtonController.NextArrow();
         Destroy(gameObject);
     }
 
-    public float getArrowMass()
+    public void SetTrajectoryPoints(Vector3 force)
     {
-        return rg.mass;
+        aimingLine.setTrajectoryPoints(transform.position, force / rg.mass);
     }
 
-    public Vector3 getArrowPosition()
+    public void RemoveProjectileArc()
     {
-        return rg.transform.position;
+        aimingLine.RemoveProjectileArc();
     }
 
     public void Destroy()

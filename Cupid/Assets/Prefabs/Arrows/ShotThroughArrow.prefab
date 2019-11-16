@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dummyColliderPrefab: {fileID: 8854139401866496189, guid: 26d226fc05d33504aafc6c8b1603521b,
     type: 3}
+  aimingLinePrefab: {fileID: 2562078435455912512, guid: 6a7012115e03e3a4a8eb4ba0c9a66c43,
+    type: 3}
 --- !u!50 &4014654179992136885
 Rigidbody2D:
   serializedVersion: 4

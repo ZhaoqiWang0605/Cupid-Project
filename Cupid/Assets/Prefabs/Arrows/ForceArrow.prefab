@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d9410a7b47fd548ac3bd812cfdfc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimingLinePrefab: {fileID: 2562078435455912512, guid: 6a7012115e03e3a4a8eb4ba0c9a66c43,
+    type: 3}
 --- !u!50 &6082937056054110594
 Rigidbody2D:
   serializedVersion: 4
