@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FadeSceneEffect : MonoBehaviour
 {
-    public float fadeSpeed = 5.0f;
+    public float fadeSpeed;
     public GameObject mask;
 
     private RawImage rawImage;
@@ -40,11 +40,13 @@ public class FadeSceneEffect : MonoBehaviour
 
     private void FadeToClear()
     {
+        Debug.Log("fadeSpeed: " + fadeSpeed);
         rawImage.color = Color.Lerp(rawImage.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
 
     private void FadeToBlack()
     {
+        Debug.Log("fadeSpeed: " + fadeSpeed);
         rawImage.color = Color.Lerp(rawImage.color, Color.black, fadeSpeed * Time.deltaTime);
     }
 

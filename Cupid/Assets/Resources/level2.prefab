@@ -2683,6 +2683,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7400709136886041228, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: fadeSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3910979935660583165, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_SizeDelta.x
