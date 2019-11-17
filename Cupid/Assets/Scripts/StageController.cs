@@ -42,7 +42,7 @@ public class StageController : MonoBehaviour
         GameObject couples = GameObject.Find("Couples");
         coupleControllers = new List<CoupleController>(FindObjectsOfType<CoupleController>());
         arrowButtonPanel = GameObject.Find("ArrowButtonPanel");
-        arrowSwitchPanel = GameObject.Find("ArrowSwitchPanel");
+        arrowSwitchPanel = GameObject.Find("ArrowToggleGroup");
 
         stageText = GameObject.Find("StageText").GetComponent<Text>(); 
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
