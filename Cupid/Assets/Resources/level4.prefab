@@ -3157,11 +3157,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6453689357338713722}
     m_Modifications:
-    - target: {fileID: 6001249672947331009, guid: 98f18aef9df924f50916bf2e88e3b2a6,
-        type: 3}
-      propertyPath: m_Name
-      value: LighteningItem
-      objectReference: {fileID: 0}
     - target: {fileID: 8492046312373067689, guid: 98f18aef9df924f50916bf2e88e3b2a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3231,6 +3226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2512183
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001249672947331009, guid: 98f18aef9df924f50916bf2e88e3b2a6,
+        type: 3}
+      propertyPath: m_Name
+      value: LighteningItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f18aef9df924f50916bf2e88e3b2a6, type: 3}
@@ -3597,6 +3597,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6453689357338713722}
     m_Modifications:
+    - target: {fileID: 8055930866551313169, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4018557295135629811, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_Name
@@ -4162,11 +4167,6 @@ PrefabInstance:
       propertyPath: coupleControllers.Array.data[81]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8055930866551313169, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8055930866996196733, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -4316,6 +4316,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286609969465451372, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910979935660583165, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910979935660583165, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870791443163174126, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870791443163174126, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840183578102290931, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840183578102290931, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6230445571997010290, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085484421683360751, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571803969560901604, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663837997242648655, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: StageMapScene1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0192b7ee0bdb18f4da0ab29741715763, type: 3}
