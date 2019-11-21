@@ -4749,7 +4749,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 61
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0.01
@@ -9501,7 +9501,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 62
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0.02
@@ -9742,7 +9742,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 60
   m_Sprite: {fileID: 21300000, guid: 538872421ee32b747a1742db48d1e2e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9792,6 +9792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3a215e0c730384393bb3470f88c908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveCameraAfterHit: 0
   moveCupidAfterHit: 1
 --- !u!95 &4196518049220183172
 Animator:
