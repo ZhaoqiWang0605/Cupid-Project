@@ -12,13 +12,12 @@ public class ProjectileAimingLine : AimingLine
         float fTime = 0;
 
         fTime += 0.1f;
-        for (int i = 0; i < projectArcPointCount; i++)
+        for (int i = 0; i < this.arcPoints.Count; i++)
         {
             float dx = velocity * fTime * Mathf.Cos(angle * Mathf.Deg2Rad);
             float dy = velocity * fTime * Mathf.Sin(angle * Mathf.Deg2Rad) - (Physics2D.gravity.magnitude * fTime * fTime / 2.0f);
             Vector3 pos = new Vector3(pStartPosition.x + dx, pStartPosition.y + dy, 0);
             this.arcPoints[i].transform.position = pos;
-            this.arcPoints[i].GetComponent<Renderer>().enabled = true;
             this.arcPoints[i].transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(pVelocity.y - (Physics.gravity.magnitude) * fTime, pVelocity.x) * Mathf.Rad2Deg);
             fTime += 0.1f;
         }

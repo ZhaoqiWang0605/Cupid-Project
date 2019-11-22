@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -9,6 +10,9 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public RectTransform arrowButtonPointer;
     public float maxDis;
     public List<GameObject> arrowPrefabs;
+    public List<double> arrowNums;
+    public List<Text> arrowNumText;
+    public List<Toggle> arrowSwitchToggles;
 
     private int currentArrowType = 0;
     private ILaunchable currentArrow;
@@ -26,12 +30,22 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     private void Start()
     {
+        for (int i=0; i<arrowPrefabs.Count; i++)
+        {
+            if (i > arrowNums.Count - 1)
+            {
+                arrowNums.Add(double.PositiveInfinity);
+            }
+            else if (arrowNums[i] < 0)
+            {
+                arrowNums[i] = double.PositiveInfinity;
+            }
+        }
+
         moveableCameraController = GameObject.Find("MoveableCamera").GetComponent<MoveableCameraController>();
 
         centerPosition = transform.position;
         NextArrow();
-
-        cupidTargetPos = cupidAnchor.position;
     }
 
     void OnEnable()
@@ -41,16 +55,39 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     void Update()
     {
-        if (Vector3.Distance(cupidAnchor.position, currentArrow.mGameObject.transform.position) > 20.0f)
-        {
-            Destroy(currentArrow.mGameObject);
-            NextArrow();
-        }
         cupidAnchor.position = Vector2.SmoothDamp(cupidAnchor.position, cupidTargetPos, ref velocity, smoothTime);
+        for (int i=0;i<arrowNumText.Count;i++)
+        {
+            arrowNumText[i].text = arrowNums[i].ToString();
+            if (arrowNums[i] == double.PositiveInfinity)
+            {
+                arrowNumText[i].text = "∞";
+            }
+            else if (arrowNums[i] <= 0)
+            {
+                arrowNumText[i].text = "0";
+            }
+        }
     }
 
     public void NextArrow()
     {
+        int switchCount = 0;
+        while (arrowNums[currentArrowType] <= 0)
+        {
+            currentArrowType = (currentArrowType + 1) % arrowPrefabs.Count;
+            switchCount++;
+            if (arrowNums[currentArrowType] > 0)
+            {
+                arrowSwitchToggles[currentArrowType].isOn = true;
+                return;
+            }
+            if (switchCount > arrowPrefabs.Count - 1)
+            {
+                return;
+            }
+        }
+
         Debug.Log("UIForceArrowButtonController.nextArrow()");
         currentArrow = Instantiate(arrowPrefabs[currentArrowType], cupidAnchor).GetComponent<ILaunchable>();
         currentArrow.mGameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
@@ -65,12 +102,33 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
     public void ChangeArrow(int type)
     {
         currentArrowType = type;
-        Destroy(currentArrow.mGameObject);
+        if (currentArrow != null)
+        {
+            Destroy(currentArrow.mGameObject);
+        }
         NextArrow();
+    }
+
+    public bool IsOutOfArrow()
+    {
+        foreach (double num in arrowNums)
+        {
+            if (num > 0)
+            {
+                Debug.Log("Has Arrow");
+                return false;
+            }
+        }
+        Debug.Log("Out Of Arrow");
+        return true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if(currentArrow == null)
+        {
+            return;
+        }
         //Debug.Log("OnDrag() eventData.position: " + eventData.position.ToString());
         
         transform.position = eventData.position;
@@ -98,6 +156,10 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (currentArrow == null)
+        {
+            return;
+        }
         //Debug.Log("OnEndDrag()");
         Vector2 force = GetForceFromTwoPoint(transform.position, centerPosition);
         currentArrow.RemoveProjectileArc();
@@ -108,7 +170,7 @@ public class UIForceArrowButtonController : MonoBehaviour, IDragHandler, IEndDra
             moveableCameraController.SetFollowTarget(currentArrow.mGameObject.transform);
             moveableCameraController.SwitchToFollow();
         }
-        
+        arrowNums[currentArrowType] = arrowNums[currentArrowType] - 1;
 
         // Rotate cupid back to default position after arrow is shot
         cupidAnchor.rotation = Quaternion.Euler(0, 0, 0);

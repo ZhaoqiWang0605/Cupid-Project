@@ -17,7 +17,6 @@ public class AimingLine : MonoBehaviour
         {
             GameObject point = (GameObject)Instantiate(projectArcPoint, transform);
             point.GetComponent<SpriteRenderer>().sortingOrder = 80;
-            point.GetComponent<Renderer>().enabled = false;
             arcPoints.Insert(i, point);
         }
     }
@@ -38,7 +37,7 @@ public class AimingLine : MonoBehaviour
         float fTime = 0;
 
         fTime += 0.1f;
-        for (int i = 0; i < projectArcPointCount; i++)
+        for (int i = 0; i < arcPoints.Count; i++)
         {
             Vector3 pos = pStartPosition + pVelocity * fTime;
             this.arcPoints[i].transform.position = pos;
@@ -50,7 +49,7 @@ public class AimingLine : MonoBehaviour
 
     public void RemoveProjectileArc()
     {
-        for (int i = 0; i < projectArcPointCount; i++)
+        for (int i = 0; i < arcPoints.Count; i++)
         {
             arcPoints[i].GetComponent<Renderer>().enabled = false;
         }

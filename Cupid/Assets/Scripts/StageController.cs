@@ -10,6 +10,7 @@ public class StageController : MonoBehaviour
     public float timeLimit;
     public float clearScore;
 
+    public UIForceArrowButtonController uiForceArrowButtonController;
     public List<CoupleController> coupleControllers = new List<CoupleController>();
     private GameObject arrowButtonPanel;
     private GameObject arrowSwitchPanel;
@@ -83,7 +84,8 @@ public class StageController : MonoBehaviour
     void CheckGameEnded()
     {
         bool allMatched = coupleControllers.TrueForAll((CoupleController obj) => obj.IsInLove());
-        if (allMatched || seconds <= 0)
+        bool outOfArrow = uiForceArrowButtonController.IsOutOfArrow();
+        if (allMatched || seconds <= 0 || outOfArrow)
         {
             gameEnded = true;
             GameEnd();
