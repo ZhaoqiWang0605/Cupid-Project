@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14054fb151dc84b58a2f154e2ea3a6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: f672b2e04633c457ea8f3a65d951ccdc, type: 3}
+  musicClip: {fileID: 8300000, guid: 419e188925e9e4f9491c48fc2d37afb6, type: 3}
   musicSource: {fileID: 173051264}
   isBackground: 1
 --- !u!82 &173051264
