@@ -7864,6 +7864,16 @@ PrefabInstance:
       propertyPath: coupleControllers.Array.data[81]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7803469246989447854, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 55955d1632ed74d949b9f1961290f71d, type: 3}
+    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_Text
+      value: 'stage: level 5'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0192b7ee0bdb18f4da0ab29741715763, type: 3}
 --- !u!4 &1637014561346821158 stripped
