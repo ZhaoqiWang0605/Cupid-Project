@@ -6440,7 +6440,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 0bae252fa059eb04f99b51ad2a2130fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85b134cbc5594b64d96215204e575f75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6468,7 +6468,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.32, y: 8.45828}
+    oldSize: {x: 4.646667, y: 9.02026}
     newSize: {x: 4.32, y: 8.45828}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6994,6 +6994,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 7803469246989447854, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 55955d1632ed74d949b9f1961290f71d, type: 3}
     - target: {fileID: 8055930866551313168, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: coupleControllers.Array.size
@@ -7298,6 +7303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_Text
+      value: 'stage: level 5'
       objectReference: {fileID: 0}
     - target: {fileID: 4018557295135629811, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -7863,16 +7873,6 @@ PrefabInstance:
         type: 3}
       propertyPath: coupleControllers.Array.data[81]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7803469246989447854, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 55955d1632ed74d949b9f1961290f71d, type: 3}
-    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_Text
-      value: 'stage: level 5'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0192b7ee0bdb18f4da0ab29741715763, type: 3}
