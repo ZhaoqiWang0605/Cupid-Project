@@ -2479,10 +2479,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.942
       objectReference: {fileID: 0}
+    - target: {fileID: 7803469246989447854, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 99471c195a5cd476fb4e0291063a2451, type: 3}
     - target: {fileID: 286609969465451372, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866917385125, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: arrowNums.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866917385125, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: arrowNums.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866917385125, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: arrowNums.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939217212145542064, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -16.23
       objectReference: {fileID: 0}
     - target: {fileID: 7400709136886041228, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -2733,6 +2758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_Text
+      value: 'stage: level 4'
       objectReference: {fileID: 0}
     - target: {fileID: 4018557295135629811, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -3298,21 +3328,6 @@ PrefabInstance:
         type: 3}
       propertyPath: coupleControllers.Array.data[81]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7803469246989447854, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 99471c195a5cd476fb4e0291063a2451, type: 3}
-    - target: {fileID: 7939217212145542064, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -16.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_Text
-      value: 'stage: level 4'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0192b7ee0bdb18f4da0ab29741715763, type: 3}
