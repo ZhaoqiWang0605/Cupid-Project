@@ -2687,7 +2687,7 @@ PrefabInstance:
     - target: {fileID: 7690275184082199480, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -8.8
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 7690275184082199480, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -2697,7 +2697,7 @@ PrefabInstance:
     - target: {fileID: 7690275184082199480, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -8.8
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 7690275184082199480, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -2863,6 +2863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: StageMapScene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
+        type: 3}
+      propertyPath: m_Text
+      value: 'stage: level 2'
       objectReference: {fileID: 0}
     - target: {fileID: 4018557295135629811, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
@@ -3033,11 +3038,6 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseDialog
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8055930866996196734, guid: 0192b7ee0bdb18f4da0ab29741715763,
-        type: 3}
-      propertyPath: m_Text
-      value: 'stage: level 2'
       objectReference: {fileID: 0}
     - target: {fileID: 6659026972023135202, guid: 0192b7ee0bdb18f4da0ab29741715763,
         type: 3}
